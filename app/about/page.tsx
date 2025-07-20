@@ -72,13 +72,14 @@ export default function AboutPage() {
                 design.
               </p>
             </div>
-            <div className="relative">
+            <div className="relative w-full h-64 md:h-96">
               <Image
                 src="/images/photo_1.jpg"
                 alt="Michael Harrison in his workshop"
-                width={600}
-                height={500}
-                className="rounded-2xl shadow-2xl"
+                fill
+                className="object-cover rounded-2xl shadow-2xl"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
               />
             </div>
           </div>
@@ -150,13 +151,14 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
-            <div className="relative">
+            <div className="relative w-full h-64 md:h-96">
               <Image
-                src="/placeholder.svg?height=600&width=500"
-                alt="Michael Harrison working on a piece"
-                width={500}
-                height={600}
+                src="/images/photo_2.jpg"
+                alt="Handcrafted furniture showcase"
+                fill
                 className="rounded-2xl shadow-2xl"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
               />
               <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-lg">
                 <div className="flex items-center space-x-4">

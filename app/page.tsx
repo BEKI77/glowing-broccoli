@@ -59,7 +59,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-amber-50 to-orange-100 py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="flex lg:flex-row flex-col gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
                 <Badge className="bg-amber-200 text-amber-800 hover:bg-amber-300">Handcrafted Excellence</Badge>
@@ -87,13 +87,14 @@ export default function HomePage() {
                 </Button>
               </div>
             </div>
-            <div className="relative">
+            <div className="relative w-full h-64 md:h-96">
               <Image
-                src="/placeholder.svg?height=600&width=500"
+                src="/images/photo_2.jpg"
                 alt="Handcrafted furniture showcase"
-                width={500}
-                height={600}
+                fill
                 className="rounded-2xl shadow-2xl"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
               />
               <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg">
                 <div className="flex items-center space-x-4">
