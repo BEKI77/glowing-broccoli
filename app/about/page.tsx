@@ -28,9 +28,9 @@ const values = [
 
 const timeline = [
   {
-    year: "1998",
+    year: "1997",
     title: "The Beginning",
-    description: "Michael Harrison started MH Furniture Shop in his garage with just basic tools and a dream.",
+    description: "Mohammed Hayder started MH Furniture Shop in his garage with just basic tools and a dream.",
   },
   {
     year: "2005",
@@ -91,9 +91,9 @@ export default function AboutPage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
             <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              To create exceptional, handcrafted furniture that brings warmth, beauty, and functionality to homes while
-              preserving traditional woodworking techniques and supporting sustainable practices. We believe that
-              furniture should be more than functional—it should be a work of art that lasts for generations.
+              Our mission is to design, manufacture, and trade exceptional furniture that combines 
+              timeless craftsmanship with contemporary aesthetics, ensuring lasting value and customer 
+              satisfaction.
             </p>
           </div>
         </div>
@@ -127,10 +127,9 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h2 className="text-4xl font-bold text-gray-900">Meet Michael Harrison</h2>
+              <h2 className="text-4xl font-bold text-gray-900">Meet Mohammed Hayder</h2>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Michael Harrison, the founder and master craftsman behind MH Furniture Shop, discovered his passion for
-                woodworking at the age of 16 when he built his first piece—a simple oak stool for his grandmother.
+                Mohammed Hayder, the founder and master craftsman behind MH Furniture Shop.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
                 After studying traditional joinery techniques in Europe and working alongside master craftsmen for over
@@ -138,7 +137,7 @@ export default function AboutPage() {
                 with modern design sensibilities.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Today, Michael leads a team of skilled artisans who share his commitment to excellence. Each piece that
+                Today, Mohammed leads a team of skilled artisans who share his commitment to excellence. Each piece that
                 leaves our workshop carries his personal seal of approval and our lifetime craftsmanship guarantee.
               </p>
               <div className="flex items-center space-x-4 pt-4">
@@ -165,7 +164,7 @@ export default function AboutPage() {
                     <Clock className="h-6 w-6 text-amber-700" />
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">Est. 1998</p>
+                    <p className="font-semibold text-gray-900">Est. 1997</p>
                     <p className="text-sm text-gray-600">25+ Years</p>
                   </div>
                 </div>
