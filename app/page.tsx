@@ -112,35 +112,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="h-8 w-8 text-amber-700" />
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">500+</h3>
-              <p className="text-gray-600">Happy Customers</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Hammer className="h-8 w-8 text-amber-700" />
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">1000+</h3>
-              <p className="text-gray-600">Pieces Crafted</p>
-            </div>
-            <div className="text-center">
-              <div className="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Award className="h-8 w-8 text-amber-700" />
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">25+</h3>
-              <p className="text-gray-600">Years Experience</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Featured Products */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">

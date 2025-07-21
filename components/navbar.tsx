@@ -68,15 +68,15 @@ export default function Navbar() {
                     key={item.name}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className={`text-lg font-medium transition-colors hover:text-amber-700 py-2 ${
+                    className={`text-lg font-medium mx-auto transition-colors hover:text-amber-700 py-2 ${
                       pathname === item.href ? "text-amber-700" : "text-gray-700"
                     }`}
                   >
                     {item.name}
                   </Link>
                 ))}
-                <div className="pt-4">
-                  <Button asChild className="w-full bg-amber-700 hover:bg-amber-800">
+                <div className="pt-4  mx-auto">
+                  <Button asChild className="bg-amber-700 hover:bg-amber-800">
                     <Link href="/contact" onClick={() => setIsOpen(false)}>
                       Get Quote
                     </Link>
