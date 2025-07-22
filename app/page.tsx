@@ -3,30 +3,36 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Star, ArrowRight, Hammer, Users, Award } from "lucide-react"
+import { Star, ArrowRight, Hammer } from "lucide-react"
+import { image_links } from "@/constants/images-links"
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 
 const featuredProducts = [
   {
     id: 1,
     name: "Rustic Oak Dining Table",
-    price: "$1,299",
-    image: "/placeholder.svg?height=300&width=400",
+    image: image_links["image3"],
+    description: "A handcrafted oak dining table with a rustic finish, perfect for family gatherings and adding warmth to your dining space.",
     category: "Tables",
     featured: true,
   },
   {
     id: 2,
-    name: "Handcrafted Leather Sofa",
-    price: "$2,499",
-    image: "/placeholder.svg?height=300&width=400",
-    category: "Sofas",
+    name: "Kitchen Cabinet",
+    image: image_links["image2"],
+    description: "Spacious and elegant, this kitchen cabinet offers ample storage and a timeless design to organize your kitchen essentials.",
+    category: "Kitchen",
     featured: true,
   },
   {
     id: 3,
-    name: "Vintage Wooden Bookshelf",
-    price: "$899",
-    image: "/placeholder.svg?height=300&width=400",
+    name: "Vintage Wooden Bed",
+    image: image_links["image1"],
+    description: "A vintage-inspired wooden bed frame, expertly crafted for comfort and style, bringing classic charm to any bedroom.",
     category: "Storage",
     featured: true,
   },
@@ -62,7 +68,7 @@ export default function HomePage() {
           <div className="flex lg:flex-row flex-col gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
-                <Badge className="bg-amber-200 text-amber-800 hover:bg-amber-300">Handcrafted Excellence</Badge>
+                <Badge className="bg-amber-200 text-amber-800 hover:bg-amber-300">ቤተሰባዊነታችን መጀመርያ እንጂ መጨረሻ የለውም</Badge>
                 <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                   Beautiful Furniture, <span className="text-amber-700">Crafted by Hand</span>
                 </h1>
@@ -124,22 +130,31 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredProducts.map((product) => (
               <Card key={product.id} className="group hover:shadow-xl transition-all duration-300 overflow-hidden">
-                <div className="relative overflow-hidden">
-                  <Image
-                    src={product.image || "/placeholder.svg"}
-                    alt={product.name}
-                    width={400}
-                    height={300}
-                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <Badge className="absolute top-4 left-4 bg-amber-700 text-white">{product.category}</Badge>
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{product.name}</h3>
-                  <p className="text-2xl font-bold text-amber-700 mb-4">{product.price}</p>
-                  <Button className="w-full bg-amber-700 hover:bg-amber-800">View Details</Button>
-                </CardContent>
-              </Card>
+                  <div className="relative overflow-hidden w-full h-64 md:h-70">
+                    <Image
+                      src={product.image || "/placeholder.svg"}
+                      alt={product.name}
+                      fill
+                      className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      priority
+                      />
+                    <Badge className="absolute top-4 left-4 bg-amber-700 text-white">{product.category}</Badge>
+                  </div>
+                  <CardContent className="p-6">
+                    <HoverCard>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2">{product.name}</h3>
+                      <HoverCardTrigger asChild>
+                        <Button className="w-full bg-amber-700 hover:bg-amber-800">View Details</Button>
+                      </HoverCardTrigger>
+                      <HoverCardContent className="w-80">
+                          <div className="space-y-1 p-3">
+                            <p className="text-sm">{product.description}</p>
+                          </div>
+                      </HoverCardContent>
+                    </HoverCard>
+                  </CardContent>
+                </Card>
             ))}
           </div>
           <div className="text-center mt-12">

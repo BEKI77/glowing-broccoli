@@ -19,8 +19,6 @@ const products = [
   {
     id: 1,
     name: "Rustic Oak Dining Table",
-    price: "$1,299",
-    originalPrice: "$1,499",
     image: "/placeholder.svg?height=300&width=400",
     category: "Tables",
     description: "Handcrafted from solid oak with traditional joinery techniques.",
@@ -30,7 +28,6 @@ const products = [
   {
     id: 2,
     name: "Handcrafted Leather Sofa",
-    price: "$2,499",
     image: "/placeholder.svg?height=300&width=400",
     category: "Sofas",
     description: "Premium leather upholstery with solid hardwood frame.",
@@ -40,7 +37,6 @@ const products = [
   {
     id: 3,
     name: "Vintage Wooden Bookshelf",
-    price: "$899",
     image: "/placeholder.svg?height=300&width=400",
     category: "Storage",
     description: "Five-shelf bookcase with adjustable shelving.",
@@ -50,7 +46,6 @@ const products = [
   {
     id: 4,
     name: "Mahogany Executive Desk",
-    price: "$1,899",
     image: "/placeholder.svg?height=300&width=400",
     category: "Tables",
     description: "Elegant executive desk with built-in drawers and cable management.",
@@ -60,8 +55,6 @@ const products = [
   {
     id: 5,
     name: "Upholstered Accent Chair",
-    price: "$649",
-    originalPrice: "$799",
     image: "/placeholder.svg?height=300&width=400",
     category: "Chairs",
     description: "Comfortable accent chair with custom fabric options.",
@@ -71,7 +64,6 @@ const products = [
   {
     id: 6,
     name: "Platform Bed Frame",
-    price: "$1,199",
     image: "/placeholder.svg?height=300&width=400",
     category: "Beds",
     description: "Modern platform bed with built-in nightstands.",
@@ -81,7 +73,6 @@ const products = [
   {
     id: 7,
     name: "Farmhouse Coffee Table",
-    price: "$799",
     image: "/placeholder.svg?height=300&width=400",
     category: "Tables",
     description: "Rustic farmhouse style with distressed finish.",
@@ -91,7 +82,6 @@ const products = [
   {
     id: 8,
     name: "Windsor Dining Chairs (Set of 4)",
-    price: "$1,299",
     image: "/placeholder.svg?height=300&width=400",
     category: "Chairs",
     description: "Traditional Windsor chairs with spindle backs.",
@@ -101,7 +91,6 @@ const products = [
   {
     id: 9,
     name: "Cedar Hope Chest",
-    price: "$549",
     image: "/placeholder.svg?height=300&width=400",
     category: "Storage",
     description: "Aromatic cedar chest perfect for blanket storage.",
@@ -228,29 +217,17 @@ export default function ProductsPage() {
                       {product.featured && <Badge className="bg-green-600 text-white">Featured</Badge>}
                       {!product.inStock && <Badge variant="destructive">Out of Stock</Badge>}
                     </div>
-                    {product.originalPrice && (
-                      <Badge className="absolute top-4 right-4 bg-red-600 text-white">Sale</Badge>
-                    )}
                   </div>
                   <CardContent className="p-6">
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">{product.name}</h3>
                     <p className="text-gray-600 mb-4 text-sm">{product.description}</p>
                     <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center gap-2">
-                        <span className="text-2xl font-bold text-amber-700">{product.price}</span>
-                        {product.originalPrice && (
-                          <span className="text-lg text-gray-500 line-through">{product.originalPrice}</span>
-                        )}
-                      </div>
-                    </div>
-                    <div className="flex gap-2">
-                      <Button className="flex-1 bg-amber-700 hover:bg-amber-800" disabled={!product.inStock}>
-                        {product.inStock ? "Add to Cart" : "Out of Stock"}
-                      </Button>
                       <Button variant="outline" size="icon">
                         ♡
                       </Button>
                     </div>
+                    
+                    
                   </CardContent>
                 </Card>
               ))}
