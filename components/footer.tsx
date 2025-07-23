@@ -71,10 +71,15 @@ export default function Footer() {
                   Showroom tulu dimtu alem bank road
                 </span>
               </div>
-              <div className="flex items-center space-x-2">
-                <Phone className="h-4 w-4 text-amber-700" />
-                <span className="text-gray-300 text-sm">0911466800</span>
-                <span className="text-gray-300 text-sm">0955421259</span>
+              <div className=" space-y-3">
+                <div className="flex items-center space-x-2">
+                  <Phone className="h-4 w-4 text-amber-700" />
+                  <span className="text-gray-300 text-sm">0911466800</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Phone className="h-4 w-4 text-amber-700" />
+                  <span className="text-gray-300 text-sm">0955421259</span>
+                </div>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-amber-700" />

@@ -68,11 +68,11 @@ export default function HomePage() {
           <div className="flex lg:flex-row flex-col gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-4">
-                <Badge className="bg-amber-200 text-amber-800 hover:bg-amber-300">ቤተሰባዊነታችን መጀመርያ እንጂ መጨረሻ የለውም</Badge>
+                <Badge className="bg-amber-200 text-amber-800 hover:bg-amber-300 md:text-lg">ቤተሰባዊነታችን መጀመርያ እንጂ መጨረሻ የለውም</Badge>
                 <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                   Beautiful Furniture, <span className="text-amber-700">Crafted by Hand</span>
                 </h1>
-                <p className="text-xl text-gray-600 leading-relaxed">
+                <p className=" text-md md:text-xl text-gray-600 leading-relaxed">
                   Discover unique, handcrafted furniture pieces that bring warmth and character to your home. Each piece
                   is carefully crafted with premium materials and traditional techniques.
                 </p>
@@ -123,7 +123,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Featured Collection</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-md md:text-xl text-gray-600 max-w-2xl mx-auto">
               Discover our most popular handcrafted pieces, each one unique and built to last generations.
             </p>
           </div>
