@@ -66,18 +66,19 @@ export default function Footer() {
               <div className="flex items-center space-x-2">
                 <MapPin className="h-4 w-4 text-amber-700" />
                 <span className="text-gray-300 text-sm">
-                  1234 Craftsman Lane
+                  Workshop akaki kaliti industry mender
                   <br />
-                  Woodville, TX 75990
+                  Showroom tulu dimtu alem bank road
                 </span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-amber-700" />
-                <span className="text-gray-300 text-sm">(555) 123-4567</span>
+                <span className="text-gray-300 text-sm">0911466800</span>
+                <span className="text-gray-300 text-sm">0955421259</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-amber-700" />
-                <span className="text-gray-300 text-sm">info@mhfurniture.com</span>
+                <span className="text-gray-300 text-sm">Mhfurniture2006@gmail.com</span>
               </div>
             </div>
           </div>
