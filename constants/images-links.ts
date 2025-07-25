@@ -4,3 +4,12 @@ export const image_links: { [Key : string] : string } = {
     "image3": "https://i.postimg.cc/QNp65hqX/photo-11-2025-07-22-17-22-28.jpg",
 
 }
+
+export const Home_page: {[Key: string] : string } = {
+    "image1":'https://i.postimg.cc/VLV8pVYT/albero-furniture-bratislava-u88z-Dvr5-V6g-unsplash.jpg',
+    "image2":'https://i.postimg.cc/QtJDzNtk/albero-furniture-bratislava-olf4wl-Zgm-Gk-unsplash.jpg',
+    "image3":'https://i.postimg.cc/YScwqLLz/albero-furniture-bratislava-Sih-GUm-Vs2f-E-unsplash.jpg',
+    "image4":'https://i.postimg.cc/zGgj5yrN/guven-gunes-gum-Xx-SBx-Ptg-unsplash.jpg',
+    "image5": 'https://i.postimg.cc/2StSd5b1/albero-furniture-bratislava-8-V-c-Ac-2-K08-unsplash.jpg',
+    "image6":'https://i.postimg.cc/cJFdLbsQ/photo-18-2025-07-23-14-23-47.jpg'
+}
