@@ -6,12 +6,13 @@ import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu, Hammer } from "lucide-react"
+import { ThemeToggle } from "./theme-toggle"
 
 const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Products", href: "/products" },
-  { name: "Gallery", href: "/gallery" },
+  { name: "Gallary", href: "/gallary" },
   { name: "Contact", href: "/contact" },
 ]
 
@@ -28,7 +29,7 @@ export default function Navbar() {
             <div className="bg-amber-700 p-2 rounded-lg">
               <Hammer className="h-6 w-6 text-white" />
             </div>
-            <span className="text-xl font-bold text-gray-900">MH Furniture</span>
+            <span className="text-xl font-bold">MH Furniture</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -38,7 +39,7 @@ export default function Navbar() {
                 key={item.name}
                 href={item.href}
                 className={`text-sm font-medium transition-colors hover:text-amber-700 ${
-                  pathname === item.href ? "text-amber-700 border-b-2 border-amber-700 pb-1" : "text-gray-700"
+                  pathname === item.href ? "text-amber-700 border-b-2 border-amber-700 pb-1" : ""
                 }`}
               >
                 {item.name}
@@ -47,10 +48,13 @@ export default function Navbar() {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
-            <Button asChild className="bg-amber-700 hover:bg-amber-800">
-              <Link href="/contact">Get Quote</Link>
-            </Button>
+          <div className=" hidden md:block">
+            <div className=" flex items-center gap-3">
+              <ThemeToggle />
+              <Button asChild className="bg-amber-700 hover:bg-amber-800">
+                <Link href="/contact">Get Quote</Link>
+              </Button>
+            </div>
           </div>
 
           {/* Mobile menu button */}

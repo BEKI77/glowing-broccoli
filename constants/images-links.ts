@@ -2,6 +2,10 @@ export const image_links: { [Key : string] : string } = {
     "image1": "https://i.postimg.cc/85vZZSQm/photo-10-2025-07-22-17-22-28.jpg",
     "image2": "https://i.postimg.cc/Dyk9kxxz/photo-1-2025-07-22-17-22-28.jpg",
     "image3": "https://i.postimg.cc/QNp65hqX/photo-11-2025-07-22-17-22-28.jpg",
+    "image4": "https://i.postimg.cc/vHn8thzs/photo-16-2025-07-23-14-23-47.jpg",
+    "image5": "https://i.postimg.cc/fLFZxSSy/photo-19-2025-07-23-14-23-47.jpg",
+    "image6": "https://i.postimg.cc/MGSnQN2N/photo-2-2025-07-23-14-23-47.jpg",
+    "image7": "https://i.postimg.cc/W4Hy98DT/photo-3-2025-07-22-17-22-28.jpg"
 
 }
 
@@ -11,5 +15,7 @@ export const Home_page: {[Key: string] : string } = {
     "image3":'https://i.postimg.cc/YScwqLLz/albero-furniture-bratislava-Sih-GUm-Vs2f-E-unsplash.jpg',
     "image4":'https://i.postimg.cc/zGgj5yrN/guven-gunes-gum-Xx-SBx-Ptg-unsplash.jpg',
     "image5": 'https://i.postimg.cc/2StSd5b1/albero-furniture-bratislava-8-V-c-Ac-2-K08-unsplash.jpg',
-    "image6":'https://i.postimg.cc/cJFdLbsQ/photo-18-2025-07-23-14-23-47.jpg'
+    "image6":'https://i.postimg.cc/cJFdLbsQ/photo-18-2025-07-23-14-23-47.jpg',
+    "image7": "https://i.postimg.cc/yY3xrs72/photo-4-2025-07-23-14-23-47.jpg"
+
 }

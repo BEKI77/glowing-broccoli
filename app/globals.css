@@ -312,10 +312,10 @@ html {
 @keyframes float3D {
   0%,
   100% {
-    transform: translateY(0px) rotateY(0deg);
+    transform: translateX(0px) rotateY(0deg);
   }
   50% {
-    transform: translateY(-20px) rotateY(5deg);
+    transform: translateX(-20px) rotateY(5deg);
   }
 }
 

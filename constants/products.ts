@@ -25,4 +25,12 @@ export const featuredProducts = [
     category: "Storage",
     featured: true,
   },
+  {
+    id: 4,
+    name: "Vintage Wooden Bed",
+    image: image_links["image4"],
+    description: "A vintage-inspired wooden bed frame, expertly crafted for comfort and style, bringing classic charm to any bedroom.",
+    category: "Storage",
+    featured: true,
+  },
 ]
