@@ -68,7 +68,7 @@ export default function HomePage() {
         </div>
          
         {/* Hero Content */}
-        <div className="relative z-10 min-h-screen flex items-center">
+        <div className="relative z-10 min-h-screen flex items-center pt-10  md:pt-0">
           <div className="max-w-7xl mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-8">
@@ -77,7 +77,7 @@ export default function HomePage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4, duration: 0.5 }}
                 >
-                  <Badge className="bg-amber-100 text-amber-800 border-amber-200 px-4 py-2">
+                  <Badge className="bg-amber-100 text-amber-800 border-amber-200 px-2 py-1">
                     Handcrafted Excellence Since 1998
                   </Badge>
                 </motion.span>
@@ -86,7 +86,7 @@ export default function HomePage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4, duration: 0.5 }}
-                    className="mx-auto max-w-2xl text-6xl lg:text-7xl font-bold leading-tight"
+                    className="mx-auto max-w-2xl text-5xl lg:text-7xl font-bold leading-tight"
                   >
                     Beautiful Furniture, <span className="text-amber-400 font-serif italic">Crafted by Hand</span>
                   </motion.h1>
@@ -94,7 +94,7 @@ export default function HomePage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4, duration: 0.5 }}
-                    className="mx-auto max-w-2xl text-xl text-muted-foreground"
+                    className="mx-auto max-w-2xl text-sm md:text-xl"
                   >
                   
                     Discover unique, handcrafted furniture pieces that bring warmth and character to your home. Each
@@ -143,7 +143,7 @@ export default function HomePage() {
 
       {/* Featured Products Gallery */}
       <section className="py-24">
-        <div className="px-20">
+        <div className="px-5 md:px-20">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col items-center gap-4 text-center">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Gallery Preview</h2>
@@ -151,7 +151,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.5 }}
-                className="mx-auto max-w-[800px] text-lg text-muted-foreground"
+                className="mx-auto max-w-[800px] text-md md:text-lg text-muted-foreground"
               >
                 Explore a selection of our diverse collection, featuring works that challenge and inspire.
               </motion.p>

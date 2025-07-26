@@ -34,3 +34,13 @@ export const featuredProducts = [
     featured: true,
   },
 ]
+
+
+export const gallary_products = Object.entries(image_links).map(([key, url], idx) => ({
+  id: idx + 1,
+  name: `Product ${idx + 1}`,
+  image: url,
+  description: `Gallery product image ${idx + 1}`,
+  category: "Gallery",
+  featured: false,
+}));
