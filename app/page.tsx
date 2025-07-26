@@ -183,12 +183,12 @@ export default function HomePage() {
           >
           <div className="testimonials-gallery">
               {testimonials.map((testimonial, index) => (
-                <Card key={index} className="testimonial-card" style={{ animationDelay: `${index * 0.2}s` }}>
+                <Card key={index} className="testimonial-card bg-background" style={{ animationDelay: `${index * 0.2}s` }}>
                   <CardContent className="p-8">
                     <div className="flex items-center mb-6">
                       <div>
-                        <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                        <p className="text-gray-600">{testimonial.location}</p>
+                        <h4 className="font-semibold ">{testimonial.name}</h4>
+                        <p className="text-muted-foreground">{testimonial.location}</p>
                       </div>
                     </div>
                     <div className="flex mb-4">
@@ -196,7 +196,7 @@ export default function HomePage() {
                         <Star key={i} className="h-5 w-5 fill-amber-400 text-amber-400" />
                       ))}
                     </div>
-                    <p className="text-gray-700 italic text-lg">"{testimonial.text}"</p>
+                    <p className="italic text-lg">"{testimonial.text}"</p>
                   </CardContent>
                 </Card>
               ))}

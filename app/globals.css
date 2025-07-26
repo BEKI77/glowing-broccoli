@@ -537,7 +537,6 @@ html {
 }
 
 .testimonial-card {
-  background: white;
   border-radius: 1rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: all 0.4s ease;
