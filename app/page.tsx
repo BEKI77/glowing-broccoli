@@ -1,3 +1,6 @@
+"use client"
+
+import { useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -6,17 +9,29 @@ import { Badge } from "@/components/ui/badge"
 import { Star, ArrowRight, Play } from "lucide-react"
 import { Home_page, image_links } from "@/constants/images-links"
 import { testimonials } from "@/constants/testimonials"
-import * as motion from "motion/react-client"
-import FeaturedProducts from "@/components/featured-products"
-import { GalleryPreview } from "@/components/gallary-preview"
+import { motion, useInView } from "framer-motion"
+import { GalleryPreview } from "@/components/gallary-preview";
 
-const transition  = {
-  duration: 1,
-  delay: 0.8,
-  ease: [0, 0.71, 0.2, 1.01] as [ number,  number, number, number],
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.05,
+    },
+  },
+}
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 }
 
 export default function HomePage() {
+
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
+
   return (
     
     <div className="min-h-screen bg-gradient-to-br from-cream-50 to-warm-50">
@@ -175,33 +190,36 @@ export default function HomePage() {
             <p className="text-xl">Real stories from real customers who love our furniture</p>
           </div>
 
-          <motion.div 
-            animate={{ opacity: 1 }}
-            initial = {{scale: 0.8}}
-            whileInView={{ scale: 1 }}
-            transition={transition}
-          >
+        
           <div className="testimonials-gallery">
               {testimonials.map((testimonial, index) => (
-                <Card key={index} className="testimonial-card bg-background" style={{ animationDelay: `${index * 0.2}s` }}>
-                  <CardContent className="p-8">
-                    <div className="flex items-center mb-6">
-                      <div>
-                        <h4 className="font-semibold ">{testimonial.name}</h4>
-                        <p className="text-muted-foreground">{testimonial.location}</p>
+                <motion.div
+                  key={index}
+                  ref={ref}
+                  variants={container}
+                  initial="hidden"
+                  animate={isInView ? "show" : "hidden"}
+              
+                >
+                  <Card key={index} className="testimonial-card bg-background" style={{ animationDelay: `${index * 0.2}s` }}>
+                    <CardContent className="p-8">
+                      <div className="flex items-center mb-6">
+                        <div>
+                          <h4 className="font-semibold ">{testimonial.name}</h4>
+                          <p className="text-muted-foreground">{testimonial.location}</p>
+                        </div>
                       </div>
-                    </div>
-                    <div className="flex mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="h-5 w-5 fill-amber-400 text-amber-400" />
-                      ))}
-                    </div>
-                    <p className="italic text-lg">"{testimonial.text}"</p>
-                  </CardContent>
-                </Card>
+                      <div className="flex mb-4">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <Star key={i} className="h-5 w-5 fill-amber-400 text-amber-400" />
+                        ))}
+                      </div>
+                      <p className="italic text-lg">"{testimonial.text}"</p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               ))}
           </div>
-          </motion.div>
         </div>
       </section>
 
