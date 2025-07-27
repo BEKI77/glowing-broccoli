@@ -1,15 +1,15 @@
 "use client"
 
-import { useRef } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Star, ArrowRight, Play } from "lucide-react"
-import { Home_page, image_links } from "@/constants/images-links"
-import { testimonials } from "@/constants/testimonials"
-import { motion, useInView } from "framer-motion"
+import { useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Star, ArrowRight, Play } from "lucide-react";
+import { Home_page, image_links } from "@/constants/images-links";
+import { testimonials } from "@/constants/testimonials";
+import { motion, useInView } from "framer-motion";
 import { GalleryPreview } from "@/components/gallary-preview";
 
 const container = {
@@ -20,23 +20,17 @@ const container = {
       staggerChildren: 0.05,
     },
   },
-}
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-}
+};
 
 export default function HomePage() {
-
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
-    
     <div className="min-h-screen bg-gradient-to-br from-cream-50 to-warm-50">
-   
+
       {/* Hero Gallery Section */}
+
       <section className="relative min-h-screen overflow-hidden">
         <div className="absolute inset-0 z-0">
             <div className="relative h-full w-full">
@@ -53,7 +47,7 @@ export default function HomePage() {
         
         {/* Floating 3D Gallery Cards */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="floating-gallery-card" style={{ top: "75%", left: "5%" , opacity:"0.8" }}>
+          <div className="floating-gallery-card" style={{ top: "78%", left: "5%" , opacity:"0.8" }}>
             <Image
               src={Home_page["image1"]}
               alt="Handcrafted chair"

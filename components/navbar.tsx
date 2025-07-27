@@ -11,7 +11,6 @@ import { ThemeToggle } from "./theme-toggle"
 const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { name: "Products", href: "/products" },
   { name: "Gallary", href: "/gallary" },
   { name: "Contact", href: "/contact" },
 ]
@@ -79,7 +78,7 @@ export default function Navbar() {
                     {item.name}
                   </Link>
                 ))}
-                <div className="pt-4  mx-auto">
+                <div className="pt-4 mx-auto">
                   <Button asChild className="bg-amber-700 hover:bg-amber-800">
                     <Link href="/contact" onClick={() => setIsOpen(false)}>
                       Get Quote

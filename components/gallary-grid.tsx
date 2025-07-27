@@ -3,12 +3,11 @@
 import { useRef } from "react"
 import Image from "next/image"
 import { motion, useInView } from "framer-motion"
-import { featuredProducts, gallary_products } from "@/constants/products"
-
+import { gallary_products } from "@/constants/products"
 
 export function ArtworkGrid() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.1 })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   const container = {
     hidden: { opacity: 0 },
