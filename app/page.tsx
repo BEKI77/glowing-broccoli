@@ -30,8 +30,8 @@ export default function HomePage() {
     <div className="min-h-screen bg-gradient-to-br from-cream-50 to-warm-50">
 
       {/* Hero Gallery Section */}
-
       <section className="relative min-h-screen overflow-hidden">
+
         <div className="absolute inset-0 z-0">
             <div className="relative h-full w-full">
               <Image

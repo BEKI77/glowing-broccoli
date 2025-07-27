@@ -19,3 +19,11 @@ export const Home_page: {[Key: string] : string } = {
     "image7": "https://i.postimg.cc/yY3xrs72/photo-4-2025-07-23-14-23-47.jpg"
 
 }
+
+export const About_page:{ [key: string]: string} = {
+    "image1":"https://i.postimg.cc/dV81w6kB/photo-5-2025-07-23-14-23-47.jpg",
+    "image2":"https://i.postimg.cc/yY3xrs72/photo-4-2025-07-23-14-23-47.jpg",
+    "image3": "https://i.postimg.cc/j2pxrnRm/photo-9-2025-07-23-14-23-47.jpg",
+    "image4": "https://i.postimg.cc/7L9ZTLNJ/photo-7-2025-07-23-14-23-47.jpg",
+    "image5": "https://i.postimg.cc/50jbYS0D/photo-21-2025-07-23-14-23-47.jpg"
+}
