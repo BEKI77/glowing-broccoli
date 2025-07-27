@@ -72,7 +72,7 @@ export default function Navbar() {
                     href={item.href}
                     onClick={() => setIsOpen(false)}
                     className={`text-lg font-medium mx-auto transition-colors hover:text-amber-700 py-2 ${
-                      pathname === item.href ? "text-amber-700" : "text-gray-700"
+                      pathname === item.href ? "text-amber-700" : ""
                     }`}
                   >
                     {item.name}
