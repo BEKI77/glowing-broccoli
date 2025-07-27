@@ -108,7 +108,7 @@ export default function AboutPage() {
 
         {/* Floating Workshop Images */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="floating-workshop-image" style={{ top: "15%", right: "10%" }}>
+          <div className="floating-gallery-card" style={{ top: "15%", right: "10%" }}>
             <Image
               src={About_page["image1"]}
               alt="Traditional tools"
@@ -117,7 +117,7 @@ export default function AboutPage() {
               className="rounded-xl shadow-2xl"
             />
           </div>
-          <div className="floating-workshop-image" style={{ bottom: "20%", left: "2%" }}>
+          <div className="floating-gallery-card" style={{ bottom: "20%", left: "2%" }}>
             <Image
               src={About_page["image2"]}
               alt="Furniture detail"
