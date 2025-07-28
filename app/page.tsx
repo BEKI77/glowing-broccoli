@@ -47,15 +47,6 @@ export default function HomePage() {
         
         {/* Floating 3D Gallery Cards */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="floating-gallery-card" style={{ top: "78%", left: "5%" , opacity:"0.8" }}>
-            <Image
-              src={Home_page["image1"]}
-              alt="Handcrafted chair"
-              width={300}
-              height={200}
-              className="rounded-lg shadow-2xl"
-            />
-          </div>
           <div className="floating-gallery-card" style={{ top: "40%", right: "10%" }}>
             <Image
               src={Home_page["image2"]}
@@ -95,7 +86,7 @@ export default function HomePage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4, duration: 0.5 }}
-                    className="mx-auto max-w-2xl text-5xl lg:text-7xl font-bold leading-tight"
+                    className="mx-auto max-w-2xl text-5xl lg:text-6xl font-bold leading-tight"
                   >
                     Our familiness has only beginnings, <span className="text-amber-400 font-serif italic">and no end</span>
                   </motion.h1>
@@ -103,7 +94,7 @@ export default function HomePage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4, duration: 0.5 }}
-                    className="mx-auto max-w-2xl text-sm md:text-xl"
+                    className="mx-auto max-w-2xl text-sm md:text-md"
                   >      
                     Since day one, we’ve seen our customers as more than clients — they’re family.
                     Every piece we build carries their vision, our experience, and a promise to last.

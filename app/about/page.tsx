@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image"
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
@@ -5,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Heart, Leaf, Award, Users, Play, ArrowRight } from "lucide-react";
 import { About_page, Home_page, image_links } from "@/constants/images-links";
+import Link from "next/link";
 
 const values = [
   {
@@ -95,12 +98,12 @@ export default function AboutPage() {
       {/* Hero Section with Parallax */}
       <section className="relative min-h-screen overflow-hidden">
         <div className="absolute inset-0">
-          <div className="parallax-container">
+          <div className="relative h-full w-full">
             <Image
               src={About_page["image4"]}
               alt="Master craftsman in workshop"
               fill
-              className="object-cover parallax-bg"
+              className="object-cover opacity-10 dark:opacity-40"
               priority
             />
           </div>
@@ -109,59 +112,71 @@ export default function AboutPage() {
 
         {/* Floating Workshop Images */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="floating-gallery-card" style={{ top: "15%", right: "10%" }}>
+          <div className="floating-gallery-card" style={{ top: "60%", right: "13%" }}>
             <Image
-              src={About_page["image1"]}
-              alt="Traditional tools"
-              width={250}
-              height={200}
-              className="rounded-xl shadow-2xl"
-            />
-          </div>
-          <div className="floating-gallery-card" style={{ bottom: "20%", left: "2%" }}>
-            <Image
-              src={About_page["image2"]}
-              alt="Furniture detail"
+              src={About_page["image3"]}
+              alt="Designer table"
               width={200}
               height={200}
-              className="rounded-xl shadow-2xl"
+              className="rounded-lg shadow-2xl"
             />
           </div>
         </div>
 
-        <div className="relative z-10 min-h-screen flex items-center">
-          <div className="max-w-7xl mx-auto px-4">
+        <div className="relative z-10 min-h-screen flex items-center pt-10 md:pt-0">
+          <div className="max-w-7xl min-w-2xl mx-auto px-4 ">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-8 animate-slide-in-left">
-                <Badge className="bg-amber-100 text-amber-800 border-amber-200 px-4 py-2">Crafting heritage furniture for over 25 years — built to last, designed to matter.</Badge>
-                <h1 className="text-5xl lg:text-7xl font-bold  leading-tight">
-                  Where Timeless Design Meets <span className="text-amber-400 font-serif italic">Your Story</span>
-                </h1>
-                <p
-                  className="mx-auto max-w-2xl text-sm md:text-xl"
-                >For over 25 years, MH Furniture Shop has been creating beautiful, handcrafted furniture that tells a story. Every piece we create is a testament to our commitment to quality, sustainability, and timeless design.
-                </p>
+              <div className="space-y-8">
+                <motion.span
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+                >
+                  <Badge className="bg-amber-100 text-amber-800 border-amber-200 px-4 py-2">
+                    Crafting heritage furniture for over 25 years — built to last, designed to matter.
+                  </Badge>
+                </motion.span>
+                <div className="space-y-6">
+                  <motion.h1
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.4, duration: 0.5 }}
+                      className="mx-auto max-w-2xl text-5xl lg:text-6xl font-bold leading-tight"
+                    >
+                    Where Timeless Design Meets <span className="text-amber-400 font-serif italic">Your Story</span>
+                  </motion.h1>
+                  <motion.p
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.4, duration: 0.5 }}
+                      className="mx-auto max-w-2xl text-sm md:text-md"
+                    >  
+                    For over 25 years, MH Furniture Shop has been creating beautiful, handcrafted furniture that tells a story. 
+                    Every piece we create is a testament to our commitment to quality, sustainability, and timeless design.
+                  </motion.p>
+                </div>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button className="gallery-btn-primary" size="lg">
-                    <Play className="mr-2 h-4 w-4" />
-                    Watch Our Story
+                  <Button size="lg" className="gallery-btn-primary" >
+                      <Play className="mr-2 h-4 w-4" />
+                        Watch Our Story                  
                   </Button>
-                  <Button variant="outline" className="gallery-btn-secondary bg-transparent" size="lg">
-                    Meet the Team
+                  <Button variant="outline" size="lg" className="gallery-btn-secondary bg-transparent" >
+                      Meet the Team
                   </Button>
                 </div>
               </div>
 
-              <div className="relative animate-slide-in-right">
-                <div className="about-hero-card">
+              {/* 3D Showcase Card */}
+              <div className="relative">
+                <div className="showcase-3d-card">
                   <Image
-                    src={About_page["image5"]}
-                    alt="Michael Harrison portrait"
+                    src={About_page["image4"]}
+                    alt="Featured furniture piece"
                     width={600}
                     height={500}
-                    className="rounded-2xl"
+                    className="rounded-2xl object-cover"
                   />
-                  <div className="about-hero-overlay">
+                  <div className="showcase-overlay">
                     <div className="p-6 text-white">
                       <h3 className="text-2xl font-bold mb-2">Mohammed Hayder</h3>
                       <p className="text-lg opacity-90">Master Craftsman & Founder</p>
@@ -176,71 +191,50 @@ export default function AboutPage() {
       </section>
 
       {/* Mission Section with Image Gallery */}
-      <section className="py-20 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full opacity-10">
+      <section className="py-20 relative min-h-screen overflow-hidden">
+        <div className="absolute top-0 right-0 w-full h-full opacity-15 dark:opacity-5">
           <Image
             src={image_links["image8"]}
             alt="Workshop background"
             fill
-            className="object-cover rounded-2xl"
+            className="object-cover"
           />
         </div>
-        <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8 animate-fade-in-up">
-              <h2 className="text-5xl font-bold leading-tight">
+        <div className="mx-auto px-4 z-10 absolute h-full w-full">
+          <div className="flex flex-col gap-10 h-full justify-center ">
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+                className="mx-auto max-w-2xl text-5xl lg:text-7xl text-center font-bold leading-tight"
+              >
                 Our <span className="text-amber-600 font-serif italic">Mission</span>
-              </h2>
-              <p className="text-xl leading-relaxed">
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+                className="mx-auto max-w-7xl text-md md:text-xl text-center leading-relaxed"
+              >
                 Our mission is to design, manufacture, and trade exceptional furniture that combines timeless 
                 craftsmanship with contemporary aesthetics, ensuring lasting value and customer satisfaction.
-              </p>
-              <p className="text-lg leading-relaxed">
                 We believe that furniture should be more than functional—it should be a work of art that lasts for
                 generations, telling the story of the hands that crafted it and the home that embraces it.
-              </p>
-              <Button className="gallery-btn-primary" size="lg">
-                <ArrowRight className="mr-2 h-4 w-4" />
-                Explore Our Process
-              </Button>
-            </div>
-            <div className="relative">
-              <div className="mission-image-gallery">
-                <div className="mission-main-image">
-                  <Image
-                    src={image_links["image1"]}
-                    alt="Furniture collection"
-                    width={600}
-                    height={500}
-                    className="rounded-2xl shadow-2xl"
-                  />
-                </div>
-                <div className="mission-floating-image mission-float-1">
-                  <Image
-                    src={image_links["image2"]}
-                    alt="Craftsman hands"
-                    width={250}
-                    height={200}
-                    className="rounded-xl shadow-xl"
-                  />
-                </div>
-                <div className="mission-floating-image mission-float-2">
-                  <Image
-                    src={image_links["image3"]}
-                    alt="Wood grain detail"
-                    width={220}
-                    height={180}
-                    className="rounded-xl shadow-xl"
-                  />
-                </div>
-              </div>
-            </div>
+              </motion.p>    
+              
+              <Link href="#process" className="mx-auto">
+                <Button className="gallery-btn-primary " size="lg">
+                    <ArrowRight className="mr-2 h-4 w-4" />
+                    Explore Our Process
+                </Button>
+              </Link>
+            
           </div>
         </div>
       </section>
 
       {/* Values Section with 3D Cards */}
-      <section className="py-20">
+      <section className="py-20 h">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-5xl font-bold  mb-6">Our Values</h2>
@@ -250,7 +244,7 @@ export default function AboutPage() {
           </div>
           <div className="values-grid">
             {values.map((value, index) => (
-              <Card key={index} className="value-card" style={{ animationDelay: `${index * 0.2}s` }}>
+              <Card key={index} style={{ animationDelay: `${index * 0.2}s` }}>
                 <div className="value-image-container">
                   <Image
                     src={value.image || "/placeholder.svg"}
@@ -264,8 +258,8 @@ export default function AboutPage() {
                   </div>
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{value.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                  <h3 className="text-xl font-semibold  mb-3">{value.title}</h3>
+                  <p className="leading-relaxed">{value.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -311,7 +305,7 @@ export default function AboutPage() {
       </section>
 
       {/* Craftsmanship Process */}
-      <section className="py-20 ">
+      <section className="py-20" id="process">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-5xl font-bold mb-6">Our Craftsmanship</h2>
