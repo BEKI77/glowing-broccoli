@@ -1,34 +1,35 @@
 import Image from "next/image"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Heart, Leaf, Award, Users, Play, ArrowRight } from "lucide-react"
-import { About_page, Home_page, image_links } from "@/constants/images-links"
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Heart, Leaf, Award, Users, Play, ArrowRight } from "lucide-react";
+import { About_page, Home_page, image_links } from "@/constants/images-links";
 
 const values = [
   {
     icon: Heart,
     title: "Passion for Craft",
     description: "Every piece is created with love and dedication to the art of woodworking.",
-    image: "/placeholder.svg?height=300&width=400&text=Passionate+Craftsman+at+Work",
+    image: image_links["image4"],
   },
   {
     icon: Leaf,
     title: "Sustainable Materials",
     description: "We source only the finest, sustainably harvested wood for our furniture.",
-    image: "/placeholder.svg?height=300&width=400&text=Sustainable+Wood+Selection",
+    image: image_links["image5"],
   },
   {
     icon: Award,
     title: "Quality Guarantee",
     description: "Each piece comes with our lifetime craftsmanship guarantee.",
-    image: "/placeholder.svg?height=300&width=400&text=Quality+Furniture+Inspection",
+    image: image_links["image6"],
   },
   {
     icon: Users,
     title: "Family Tradition",
     description: "Three generations of furniture makers bringing you timeless designs.",
-    image: "/placeholder.svg?height=300&width=400&text=Family+Furniture+Workshop",
+    image: image_links["image7"],
   },
 ]
 
@@ -36,7 +37,7 @@ const timeline = [
   {
     year: "1998",
     title: "The Beginning",
-    description: "Michael Harrison started MH Furniture Shop in his garage with just basic tools and a dream.",
+    description: "Mohammed Hayder started MH Furniture Shop in his garage with just basic tools and a dream.",
     image: "/placeholder.svg?height=300&width=400&text=1998+Garage+Workshop+Beginning",
   },
   {
@@ -132,14 +133,13 @@ export default function AboutPage() {
           <div className="max-w-7xl mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-8 animate-slide-in-left">
-                <Badge className="bg-amber-100 text-amber-800 border-amber-200 px-4 py-2">Our Story Since 1998</Badge>
-                <h1 className="text-6xl lg:text-7xl font-bold  leading-tight">
-                  Crafting Dreams Into <span className="text-amber-400 font-serif italic">Reality</span>
+                <Badge className="bg-amber-100 text-amber-800 border-amber-200 px-4 py-2">Crafting heritage furniture for over 25 years — built to last, designed to matter.</Badge>
+                <h1 className="text-5xl lg:text-7xl font-bold  leading-tight">
+                  Where Timeless Design Meets <span className="text-amber-400 font-serif italic">Your Story</span>
                 </h1>
-                <p className="text-xl  leading-relaxed max-w-lg">
-                  For over 25 years, MH Furniture Shop has been creating beautiful, handcrafted furniture that tells a
-                  story. Every piece we create is a testament to our commitment to quality, sustainability, and timeless
-                  design.
+                <p
+                  className="mx-auto max-w-2xl text-sm md:text-xl"
+                >For over 25 years, MH Furniture Shop has been creating beautiful, handcrafted furniture that tells a story. Every piece we create is a testament to our commitment to quality, sustainability, and timeless design.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button className="gallery-btn-primary" size="lg">
@@ -163,7 +163,7 @@ export default function AboutPage() {
                   />
                   <div className="about-hero-overlay">
                     <div className="p-6 text-white">
-                      <h3 className="text-2xl font-bold mb-2">Michael Harrison</h3>
+                      <h3 className="text-2xl font-bold mb-2">Mohammed Hayder</h3>
                       <p className="text-lg opacity-90">Master Craftsman & Founder</p>
                       <p className="text-sm mt-2 opacity-80">25+ Years of Excellence</p>
                     </div>
@@ -177,12 +177,12 @@ export default function AboutPage() {
 
       {/* Mission Section with Image Gallery */}
       <section className="py-20 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/3 h-full opacity-10">
+        <div className="absolute top-0 right-0 w-1/2 h-full opacity-10">
           <Image
-            src="/placeholder.svg?height=800&width=600&text=Workshop+Tools+Background"
+            src={image_links["image8"]}
             alt="Workshop background"
             fill
-            className="object-cover"
+            className="object-cover rounded-2xl"
           />
         </div>
         <div className="max-w-7xl mx-auto px-4 relative z-10">
@@ -192,8 +192,8 @@ export default function AboutPage() {
                 Our <span className="text-amber-600 font-serif italic">Mission</span>
               </h2>
               <p className="text-xl leading-relaxed">
-                To create exceptional, handcrafted furniture that brings warmth, beauty, and functionality to homes
-                while preserving traditional woodworking techniques and supporting sustainable practices.
+                Our mission is to design, manufacture, and trade exceptional furniture that combines timeless 
+                craftsmanship with contemporary aesthetics, ensuring lasting value and customer satisfaction.
               </p>
               <p className="text-lg leading-relaxed">
                 We believe that furniture should be more than functional—it should be a work of art that lasts for
@@ -208,7 +208,7 @@ export default function AboutPage() {
               <div className="mission-image-gallery">
                 <div className="mission-main-image">
                   <Image
-                    src="/placeholder.svg?height=500&width=600&text=Beautiful+Handcrafted+Furniture+Collection"
+                    src={image_links["image1"]}
                     alt="Furniture collection"
                     width={600}
                     height={500}
@@ -217,7 +217,7 @@ export default function AboutPage() {
                 </div>
                 <div className="mission-floating-image mission-float-1">
                   <Image
-                    src="/placeholder.svg?height=200&width=250&text=Craftsman+Hands+Working"
+                    src={image_links["image2"]}
                     alt="Craftsman hands"
                     width={250}
                     height={200}
@@ -226,7 +226,7 @@ export default function AboutPage() {
                 </div>
                 <div className="mission-floating-image mission-float-2">
                   <Image
-                    src="/placeholder.svg?height=180&width=220&text=Wood+Grain+Detail"
+                    src={image_links["image3"]}
                     alt="Wood grain detail"
                     width={220}
                     height={180}

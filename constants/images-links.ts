@@ -5,7 +5,8 @@ export const image_links: { [Key : string] : string } = {
     "image4": "https://i.postimg.cc/vHn8thzs/photo-16-2025-07-23-14-23-47.jpg",
     "image5": "https://i.postimg.cc/fLFZxSSy/photo-19-2025-07-23-14-23-47.jpg",
     "image6": "https://i.postimg.cc/MGSnQN2N/photo-2-2025-07-23-14-23-47.jpg",
-    "image7": "https://i.postimg.cc/W4Hy98DT/photo-3-2025-07-22-17-22-28.jpg"
+    "image7": "https://i.postimg.cc/W4Hy98DT/photo-3-2025-07-22-17-22-28.jpg",
+    "image8": "https://i.postimg.cc/T14QVrc1/photo-2025-07-28-10-47-20.jpg"
 
 }
 

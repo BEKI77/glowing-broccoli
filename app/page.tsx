@@ -97,18 +97,17 @@ export default function HomePage() {
                     transition={{ delay: 0.4, duration: 0.5 }}
                     className="mx-auto max-w-2xl text-5xl lg:text-7xl font-bold leading-tight"
                   >
-                    Beautiful Furniture, <span className="text-amber-400 font-serif italic">Crafted by Hand</span>
+                    Our familiness has only beginnings, <span className="text-amber-400 font-serif italic">and no end</span>
                   </motion.h1>
                   <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4, duration: 0.5 }}
                     className="mx-auto max-w-2xl text-sm md:text-xl"
-                  >
-                  
-                    Discover unique, handcrafted furniture pieces that bring warmth and character to your home. Each
-                    piece is carefully crafted with premium materials and traditional techniques.
-                  
+                  >      
+                    Since day one, we’ve seen our customers as more than clients — they’re family.
+                    Every piece we build carries their vision, our experience, and a promise to last.
+                    We don’t just deliver furniture. We deliver belonging.
                   </motion.p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -235,8 +234,7 @@ export default function HomePage() {
         <div className="relative z-10 max-w-4xl mx-auto text-center px-4">
           <h2 className="text-5xl font-bold mb-6">Ready to Transform Your Space?</h2>
           <p className="text-xl  mb-8 max-w-2xl mx-auto">
-            Let's create something beautiful together. Contact us for a consultation or visit our showroom to see our
-            craftsmanship up close.
+            Bring us your ideas — from Pinterest boards to personal sketches — and our experienced design team and master craftsmen will bring them to life.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="gallery-btn-primary">
