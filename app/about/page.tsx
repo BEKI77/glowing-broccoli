@@ -97,24 +97,25 @@ export default function AboutPage() {
     <div className="min-h-screen bg-gradient-to-br from-cream-50 to-warm-50">
       {/* Hero Section with Parallax */}
       <section className="relative min-h-screen overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="relative h-full w-full">
-            <Image
-              src={About_page["image4"]}
-              alt="Master craftsman in workshop"
-              fill
-              className="object-cover opacity-10 dark:opacity-40"
-              priority
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background to-background" />
-        </div>
 
-        {/* Floating Workshop Images */}
+        <div className="absolute inset-0 z-0">
+            <div className="relative h-full w-full">
+              <Image
+                src={About_page["image4"]}
+                alt="Gallery interior"
+                fill
+                priority
+                className="object-cover opacity-10 dark:opacity-40"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background to-background" />
+            </div>
+          </div>
+        
+        {/* Floating 3D Gallery Cards */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="floating-gallery-card" style={{ top: "60%", right: "13%" }}>
+          <div className="floating-gallery-card" style={{ top: "55%", right: "13%" }}>
             <Image
-              src={About_page["image3"]}
+              src={About_page["image2"]}
               alt="Designer table"
               width={200}
               height={200}
@@ -122,9 +123,10 @@ export default function AboutPage() {
             />
           </div>
         </div>
-
-        <div className="relative z-10 min-h-screen flex items-center pt-10 md:pt-0">
-          <div className="max-w-7xl min-w-2xl mx-auto px-4 ">
+         
+        {/* Hero Content */}
+        <div className="relative z-10 min-h-screen flex items-center pt-10  md:pt-0">
+          <div className="max-w-7xl mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-8">
                 <motion.span
@@ -132,36 +134,41 @@ export default function AboutPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4, duration: 0.5 }}
                 >
-                  <Badge className="bg-amber-100 text-amber-800 border-amber-200 px-4 py-2">
-                    Crafting heritage furniture for over 25 years — built to last, designed to matter.
+                  <Badge className="bg-amber-100 text-amber-800 border-amber-200 px-2 py-1">
+                    Crafting heritage furniture for over 25 years.
                   </Badge>
                 </motion.span>
-                <div className="space-y-6">
+                <div className="space-y-6 mt-2">
                   <motion.h1
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.4, duration: 0.5 }}
-                      className="mx-auto max-w-2xl text-5xl lg:text-6xl font-bold leading-tight"
-                    >
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.5 }}
+                    className="mx-auto max-w-2xl text-5xl lg:text-6xl font-bold leading-tight"
+                  >
                     Where Timeless Design Meets <span className="text-amber-400 font-serif italic">Your Story</span>
                   </motion.h1>
                   <motion.p
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.4, duration: 0.5 }}
-                      className="mx-auto max-w-2xl text-sm md:text-md"
-                    >  
-                    For over 25 years, MH Furniture Shop has been creating beautiful, handcrafted furniture that tells a story. 
-                    Every piece we create is a testament to our commitment to quality, sustainability, and timeless design.
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.5 }}
+                    className="mx-auto max-w-2xl text-sm md:text-md"
+                  >      
+                    For over 25 years, MH Furniture Shop has been creating beautiful, 
+                    handcrafted furniture that tells a story.Every piece we create is 
+                    a testament to our commitment to quality, sustainability, and timeless design.
                   </motion.p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="lg" className="gallery-btn-primary" >
+                  <Button asChild size="lg" className="gallery-btn-primary">
+                    <Link href="/products">
                       <Play className="mr-2 h-4 w-4" />
-                        Watch Our Story                  
+                      Watch Our Story 
+                    </Link>
                   </Button>
-                  <Button variant="outline" size="lg" className="gallery-btn-secondary bg-transparent" >
+                  <Button asChild variant="outline" size="lg" className="gallery-btn-secondary bg-transparent">
+                    <Link href="#Team">
                       Meet the Team
+                    </Link>
                   </Button>
                 </div>
               </div>
@@ -174,13 +181,12 @@ export default function AboutPage() {
                     alt="Featured furniture piece"
                     width={600}
                     height={500}
-                    className="rounded-2xl object-cover"
+                    className="rounded-2xl"
                   />
                   <div className="showcase-overlay">
                     <div className="p-6 text-white">
-                      <h3 className="text-2xl font-bold mb-2">Mohammed Hayder</h3>
-                      <p className="text-lg opacity-90">Master Craftsman & Founder</p>
-                      <p className="text-sm mt-2 opacity-80">25+ Years of Excellence</p>
+                      <h3 className="text-2xl font-bold mb-2">Featured Piece</h3>
+                      <p className="text-lg opacity-90">Handcrafted Oak Bed</p>
                     </div>
                   </div>
                 </div>
@@ -189,7 +195,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
+      
       {/* Mission Section with Image Gallery */}
       <section className="py-20 relative min-h-screen overflow-hidden">
         <div className="absolute top-0 right-0 w-full h-full opacity-15 dark:opacity-5">
