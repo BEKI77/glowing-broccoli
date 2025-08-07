@@ -145,37 +145,6 @@ export default function ContactPage() {
     <div className="min-h-screen bg-gradient-to-br from-cream-50 to-warm-50">
       {/* Hero Section */}
       <section className="relative min-h-screen overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="contact-hero-slideshow">
-            <div className="contact-slide active">
-              <Image
-                src="/placeholder.svg?height=1080&width=1920&text=Modern+Furniture+Showroom+Contact+Area"
-                alt="Showroom contact area"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-            <div className="contact-slide">
-              <Image
-                src="/placeholder.svg?height=1080&width=1920&text=Consultation+Room+with+Furniture+Samples"
-                alt="Consultation room"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="contact-slide">
-              <Image
-                src="/placeholder.svg?height=1080&width=1920&text=Workshop+Tour+and+Meeting+Space"
-                alt="Workshop meeting space"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent"></div>
-        </div>
-
         {/* Floating Contact Cards */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="floating-contact-card" style={{ top: "20%", right: "10%" }}>
