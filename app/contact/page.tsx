@@ -27,27 +27,18 @@ import { Badge } from "@/components/ui/badge";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { toast } from "../hooks/use-toast";
-import { z } from "zod"
-import { contactMethods, faqItems } from "@/constants/contact_page"
-import { useState } from "react"
-import { Checkbox } from "@/components/ui/checkbox"
+import { z } from "zod";
+import { contactMethods, faqItems } from "@/constants/contact_page";
+import { useState } from "react";
+import { image_links } from "@/constants/images-links";
 
 const contactFormSchema = z.object({
   name: z
@@ -68,7 +59,6 @@ const contactFormSchema = z.object({
         message: "Please enter a valid phone number",
       },
     ),
-  projectType: z.string().min(1, "Please select a project type"),
   subject: z
     .string()
     .min(5, "Subject must be at least 5 characters")
@@ -77,12 +67,6 @@ const contactFormSchema = z.object({
     .string()
     .min(20, "Message must be at least 20 characters")
     .max(1000, "Message must be less than 1000 characters"),
-  budget: z.string().optional(),
-  timeline: z.string().optional(),
-  newsletter: z.boolean(),
-  terms: z.boolean().refine((val) => val === true, {
-    message: "You must agree to the terms and conditions",
-  }),
 })
 
 export type ContactFormData = z.infer<typeof contactFormSchema>
@@ -98,13 +82,7 @@ export default function ContactPage() {
       name: "",
       email: "",
       phone: "",
-      projectType: "",
-      subject: "",
       message: "",
-      budget: "",
-      timeline: "",
-      newsletter:false,
-      terms: false,
     },
   })
 
@@ -144,32 +122,31 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-cream-50 to-warm-50">
       {/* Hero Section */}
-      <section className="relative min-h-screen overflow-hidden">
-        {/* Floating Contact Cards */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="floating-contact-card" style={{ top: "20%", right: "10%" }}>
-            <div className="contact-info-bubble">
-              <Phone className="h-6 w-6 text-amber-600 mb-2" />
-              <p className="text-sm font-semibold">(555) 123-4567</p>
-            </div>
-          </div>
-          <div className="floating-contact-card" style={{ bottom: "25%", left: "8%" }}>
-            <div className="contact-info-bubble">
-              <MapPin className="h-6 w-6 text-amber-600 mb-2" />
-              <p className="text-sm font-semibold">Visit Showroom</p>
-            </div>
+      <section className="relative min-h-screen ">
+        <div className="absolute inset-0 z-0">
+          <div className="relative h-full w-full">
+            <Image
+            
+              src={image_links["image3"]}
+              alt="Gallery interior"
+              fill
+              priority
+              className="object-cover opacity-10 dark:opacity-40"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background to-background" />
           </div>
         </div>
+        {/* Floating Contact Cards */}
 
         <div className="relative z-10 min-h-screen flex items-center">
           <div className="max-w-7xl mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-8 animate-slide-in-left">
                 <Badge className="bg-amber-100 text-amber-800 border-amber-200 px-4 py-2">Let's Create Together</Badge>
-                <h1 className="text-6xl lg:text-7xl font-bold text-white leading-tight">
+                <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
                   Get In <span className="text-amber-400 font-serif italic">Touch</span>
                 </h1>
-                <p className="text-xl text-gray-200 leading-relaxed max-w-lg">
+                <p className="text-sm md:text-md leading-relaxed max-w-lg">
                   Ready to create something beautiful? We'd love to hear about your project and discuss how we can bring
                   your vision to life with our handcrafted furniture.
                 </p>
@@ -187,13 +164,13 @@ export default function ContactPage() {
 
               <div className="relative animate-slide-in-right">
                 <div className="contact-hero-card">
-                  <Image
-                    src="/placeholder.svg?height=600&width=500&text=Friendly+Team+Ready+to+Help"
-                    alt="Friendly team"
-                    width={500}
-                    height={600}
-                    className="rounded-2xl"
-                  />
+                  <div className="relative w-[100%] pb-[55.000%]">
+                    <iframe 
+                      allow="fullscreen;autoplay" 
+                      src="https://streamable.com/e/vd8mgo?autoplay=1&muted=1"     
+                      className=" w-[100%] h-[100%] absolute overflow:hidden;">
+                    </iframe>
+                  </div>
                   <div className="contact-hero-overlay">
                     <div className="p-6 text-white">
                       <h3 className="text-2xl font-bold mb-2">We're Here to Help</h3>
@@ -222,13 +199,6 @@ export default function ContactPage() {
             {contactMethods.map((method, index) => (
               <Card key={index}  style={{ animationDelay: `${index * 0.2}s` }}>
                 <div className="contact-method-image">
-                  {/* <Image
-                    src={method.image || "/placeholder.svg"}
-                    alt={method.title}
-                    width={400}
-                    height={300}
-                    className="w-full h-48 object-cover"
-                  /> */}
                   <div className={`contact-method-icon ${method.color}`}>
                     <method.icon className="h-6 w-6 text-white" />
                   </div>
@@ -287,16 +257,16 @@ export default function ContactPage() {
                   {!submitSuccess ? (
                     <Form {...form}>
                       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                        {/* Name and Email Row */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {/* Simple & Intuitive Form */}
+                        <div className="space-y-4">
                           <FormField
                             control={form.control}
                             name="name"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel>Full Name *</FormLabel>
+                                <FormLabel>Name *</FormLabel>
                                 <FormControl>
-                                  <Input placeholder="Your full name" {...field} />
+                                  <Input placeholder="Your name" {...field} />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -307,203 +277,59 @@ export default function ContactPage() {
                             name="email"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel>Email Address *</FormLabel>
+                                <FormLabel>Email *</FormLabel>
                                 <FormControl>
-                                  <Input
-                                    type="email"
-                                    placeholder="your.email@example.com"
-                                    className=""
-                                    {...field}
-                                  />
+                                  <Input type="email" placeholder="your@email.com" {...field} />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
                             )}
                           />
-                        </div>
-
-                        {/* Phone and Project Type Row */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <FormField
                             control={form.control}
-                            name="phone"
+                            name="email"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel>Phone Number</FormLabel>
+                                <FormLabel>Phone *</FormLabel>
                                 <FormControl>
-                                  <Input type="tel" placeholder="(555) 123-4567" className="" {...field} />
+                                  <Input type="phone" placeholder="0912345678" {...field} />
                                 </FormControl>
-                                <FormDescription>Optional - for faster response</FormDescription>
                                 <FormMessage />
                               </FormItem>
                             )}
                           />
                           <FormField
                             control={form.control}
-                            name="projectType"
+                            name="subject"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel>Project Type *</FormLabel>
-                                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                  <FormControl>
-                                    <SelectTrigger className="">
-                                      <SelectValue placeholder="Select project type" />
-                                    </SelectTrigger>
-                                  </FormControl>
-                                  <SelectContent>
-                                    <SelectItem value="custom-furniture">Custom Furniture</SelectItem>
-                                    <SelectItem value="furniture-repair">Furniture Repair</SelectItem>
-                                    <SelectItem value="consultation">Design Consultation</SelectItem>
-                                    <SelectItem value="restoration">Furniture Restoration</SelectItem>
-                                    <SelectItem value="commercial">Commercial Project</SelectItem>
-                                    <SelectItem value="other">Other</SelectItem>
-                                  </SelectContent>
-                                </Select>
+                                <FormLabel>Subject *</FormLabel>
+                                <FormControl>
+                                  <Input placeholder="How can we help you?" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                              </FormItem>
+                            )}
+                          />
+                          <FormField
+                            control={form.control}
+                            name="message"
+                            render={({ field }) => (
+                              <FormItem>
+                                <FormLabel>Message *</FormLabel>
+                                <FormControl>
+                                  <Textarea placeholder="Type your message here..." rows={5} {...field} />
+                                </FormControl>
                                 <FormMessage />
                               </FormItem>
                             )}
                           />
                         </div>
-
-                        {/* Budget and Timeline Row */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          <FormField
-                            control={form.control}
-                            name="budget"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>Budget Range</FormLabel>
-                                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                  <FormControl>
-                                    <SelectTrigger className="">
-                                      <SelectValue placeholder="Select budget range" />
-                                    </SelectTrigger>
-                                  </FormControl>
-                                  <SelectContent>
-                                    <SelectItem value="under-1000">Under $1,000</SelectItem>
-                                    <SelectItem value="1000-2500">$1,000 - $2,500</SelectItem>
-                                    <SelectItem value="2500-5000">$2,500 - $5,000</SelectItem>
-                                    <SelectItem value="5000-10000">$5,000 - $10,000</SelectItem>
-                                    <SelectItem value="over-10000">Over $10,000</SelectItem>
-                                    <SelectItem value="discuss">Prefer to discuss</SelectItem>
-                                  </SelectContent>
-                                </Select>
-                                <FormDescription>Optional - helps us provide better estimates</FormDescription>
-                              </FormItem>
-                            )}
-                          />
-                          <FormField
-                            control={form.control}
-                            name="timeline"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>Timeline</FormLabel>
-                                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                  <FormControl>
-                                    <SelectTrigger className="">
-                                      <SelectValue placeholder="When do you need this?" />
-                                    </SelectTrigger>
-                                  </FormControl>
-                                  <SelectContent>
-                                    <SelectItem value="asap">As soon as possible</SelectItem>
-                                    <SelectItem value="1-2-months">1-2 months</SelectItem>
-                                    <SelectItem value="3-6-months">3-6 months</SelectItem>
-                                    <SelectItem value="6-12-months">6-12 months</SelectItem>
-                                    <SelectItem value="flexible">Flexible</SelectItem>
-                                  </SelectContent>
-                                </Select>
-                                <FormDescription>Optional - helps us schedule accordingly</FormDescription>
-                              </FormItem>
-                            )}
-                          />
-                        </div>
-
-                        {/* Subject */}
-                        <FormField
-                          control={form.control}
-                          name="subject"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Subject *</FormLabel>
-                              <FormControl>
-                                <Input placeholder="What can we help you with?" className="" {...field} />
-                              </FormControl>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-
-                        {/* Message */}
-                        <FormField
-                          control={form.control}
-                          name="message"
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel>Message *</FormLabel>
-                              <FormControl>
-                                <Textarea
-                                  placeholder="Tell us about your project, timeline, budget, or any questions you have..."
-                                  rows={6}
-                                  className=" resize-none"
-                                  {...field}
-                                />
-                              </FormControl>
-                              <FormDescription>{field.value?.length || 0}/1000 characters</FormDescription>
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-
-                        {/* Checkboxes */}
-                        <div className="space-y-4">
-                          <FormField
-                            control={form.control}
-                            name="newsletter"
-                            render={({ field }) => (
-                              <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                                <FormControl>
-                                  <Checkbox checked={field.value} onCheckedChange={field.onChange} />
-                                </FormControl>
-                                <div className="space-y-1 leading-none">
-                                  <FormLabel className="text-sm font-normal">
-                                    Subscribe to our newsletter for updates and furniture care tips
-                                  </FormLabel>
-                                </div>
-                              </FormItem>
-                            )}
-                          />
-                          <FormField
-                            control={form.control}
-                            name="terms"
-                            render={({ field }) => (
-                              <FormItem className="flex flex-row items-start space-x-3 space-y-0">
-                                <FormControl>
-                                  <Checkbox checked={field.value} onCheckedChange={field.onChange} />
-                                </FormControl>
-                                <div className="space-y-1 leading-none">
-                                  <FormLabel className="text-sm font-normal">
-                                    I agree to the{" "}
-                                    <a href="#" className="text-amber-600 hover:underline">
-                                      terms and conditions
-                                    </a>{" "}
-                                    and{" "}
-                                    <a href="#" className="text-amber-600 hover:underline">
-                                      privacy policy
-                                    </a>
-                                    *
-                                  </FormLabel>
-                                  <FormMessage />
-                                </div>
-                              </FormItem>
-                            )}
-                          />
-                        </div>
-
                         <Button type="submit" className="gallery-btn-primary w-full" size="lg" disabled={isSubmitting}>
                           {isSubmitting ? (
                             <>
                               <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                              Sending Message...
+                              Sending...
                             </>
                           ) : (
                             <>
@@ -547,7 +373,7 @@ export default function ContactPage() {
               <Card className="">
                 <div className="contact-info-image">
                   <Image
-                    src="/placeholder.svg?height=300&width=500&text=Beautiful+Showroom+Exterior+View"
+                    src={image_links['image6']}
                     alt="Showroom exterior"
                     width={500}
                     height={300}
@@ -562,9 +388,9 @@ export default function ContactPage() {
                       <div>
                         <p className="font-semibold ">Address</p>
                         <p >
-                          1234 Craftsman Lane
+                          Workshop akaki kaliti industry mender
                           <br />
-                          Woodville, TX 75990
+                          Showroom tulu dimtu alem bank road
                         </p>
                       </div>
                     </div>
@@ -588,7 +414,7 @@ export default function ContactPage() {
               <Card className="">
                 <div className="contact-info-image">
                   <Image
-                    src="/placeholder.svg?height=300&width=500&text=Social+Media+Behind+the+Scenes"
+                    src={image_links['image8']}
                     alt="Behind the scenes"
                     width={500}
                     height={300}
