@@ -5,9 +5,10 @@ export const contactMethods = [
     icon: Phone,
     title: "Call Us",
     description: "Speak directly with our team",
-    details: ["Main: (555) 123-4567", "Mobile: (555) 987-6543"],
+    details: ["Main: 0963970000", "Mobile: 0963980000"],
     image: "/placeholder.svg?height=300&width=400&text=Phone+Consultation+Call",
     color: "bg-blue-500",
+    href: "tel:0963970000",
   },
   {
     icon: Mail,

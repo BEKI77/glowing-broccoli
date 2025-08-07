@@ -222,13 +222,13 @@ export default function ContactPage() {
             {contactMethods.map((method, index) => (
               <Card key={index}  style={{ animationDelay: `${index * 0.2}s` }}>
                 <div className="contact-method-image">
-                  <Image
+                  {/* <Image
                     src={method.image || "/placeholder.svg"}
                     alt={method.title}
                     width={400}
                     height={300}
                     className="w-full h-48 object-cover"
-                  />
+                  /> */}
                   <div className={`contact-method-icon ${method.color}`}>
                     <method.icon className="h-6 w-6 text-white" />
                   </div>
@@ -243,7 +243,13 @@ export default function ContactPage() {
                       </p>
                     ))}
                   </div>
-                  <Button className="w-full mt-4 gallery-btn-primary">{method.title.split(" ")[0]} Now</Button>
+                  {method.href ? (
+                    <a href={method.href} className="w-full mt-4 block">
+                      <Button className="w-full gallery-btn-primary">{method.title.split(" ")[0]} Now</Button>
+                    </a>
+                  ) : (
+                    <Button className="w-full mt-4 gallery-btn-primary">{method.title.split(" ")[0]} Now</Button>
+                  )}
                 </CardContent>
               </Card>
             ))}
