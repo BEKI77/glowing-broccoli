@@ -39,6 +39,7 @@ import { z } from "zod";
 import { contactMethods, faqItems } from "@/constants/contact_page";
 import { useState } from "react";
 import { image_links } from "@/constants/images-links";
+import Link from "next/link"
 
 const contactFormSchema = z.object({
   name: z
@@ -82,40 +83,45 @@ export default function ContactPage() {
       name: "",
       email: "",
       phone: "",
+      subject: "",
       message: "",
     },
   })
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true)
-
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000))
+      // Send POST request to API endpoint
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-      console.log("Form submitted:", data)
-
-      // Show success message
+      
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+        
       toast({
         title: "Message sent successfully!",
         description: "We'll get back to you within 24 hours.",
         duration: 5000,
-      })
-
-      setSubmitSuccess(true)
-      form.reset()
-
-      // Reset success state after 5 seconds
-      setTimeout(() => setSubmitSuccess(false), 5000)
+      });
+      setSubmitSuccess(true);
+      form.reset();
+      setTimeout(() => setSubmitSuccess(false), 5000);
     } catch (error) {
       toast({
         title: "Error sending message",
         description: "Please try again or contact us directly.",
         variant: "destructive",
         duration: 5000,
-      })
+      });
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
   }
 
@@ -151,10 +157,12 @@ export default function ContactPage() {
                   your vision to life with our handcrafted furniture.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button className="gallery-btn-primary" size="lg">
-                    <MessageCircle className="mr-2 h-4 w-4" />
-                    Start Conversation
-                  </Button>
+                  <Link href="https://t.me/gedi_k" target="_blank" rel="noopener noreferrer">
+                    <Button className="gallery-btn-primary" size="lg">
+                      <MessageCircle className="mr-2 h-4 w-4" />
+                      Start Conversation
+                    </Button>
+                  </Link>
                   <Button variant="outline" className="gallery-btn-secondary bg-transparent" size="lg">
                     <Calendar className="mr-2 h-4 w-4" />
                     Book Consultation
@@ -287,7 +295,7 @@ export default function ContactPage() {
                           />
                           <FormField
                             control={form.control}
-                            name="email"
+                            name="phone"
                             render={({ field }) => (
                               <FormItem>
                                 <FormLabel>Phone *</FormLabel>
