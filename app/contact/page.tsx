@@ -49,11 +49,9 @@ const contactFormSchema = z.object({
     .regex(/^[a-zA-Z\s]+$/, "Name can only contain letters and spaces"),
   email: z
     .string()
-    .email("Please enter a valid email address")
-    .min(1, "Email is required"),
+    .optional(),
   phone: z
     .string()
-    .optional()
     .refine(
       (val) => !val || /^[09]?[1-9][\d]{0,15}$/.test(val.replace(/[\s\-\\$]/g, "")),
       {
@@ -285,9 +283,9 @@ export default function ContactPage() {
                             name="email"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel>Email *</FormLabel>
+                                <FormLabel>Email</FormLabel>
                                 <FormControl>
-                                  <Input type="email" placeholder="your@email.com" {...field} />
+                                  <Input type="email" placeholder="your@email.com (optional)" required={false} {...field} />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
