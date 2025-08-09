@@ -55,7 +55,7 @@ const contactFormSchema = z.object({
     .string()
     .optional()
     .refine(
-      (val) => !val || /^[+]?[1-9][\d]{0,15}$/.test(val.replace(/[\s\-\\$]/g, "")),
+      (val) => !val || /^[09]?[1-9][\d]{0,15}$/.test(val.replace(/[\s\-\\$]/g, "")),
       {
         message: "Please enter a valid phone number",
       },
