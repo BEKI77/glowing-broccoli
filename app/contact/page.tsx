@@ -161,10 +161,12 @@ export default function ContactPage() {
                       Start Conversation
                     </Button>
                   </Link>
-                  <Button variant="outline" className="gallery-btn-secondary bg-transparent" size="lg">
-                    <Calendar className="mr-2 h-4 w-4" />
-                    Book Consultation
-                  </Button>
+                  <Link href="https://t.me/gedi_k" target="_blank" rel="noopener noreferrer">
+                    <Button variant="outline" className="gallery-btn-secondary bg-transparent" size="lg">
+                      <Calendar className="mr-2 h-4 w-4" />
+                      Book Consultation
+                    </Button>
+                  </Link>
                 </div>
               </div>
 
@@ -195,8 +197,8 @@ export default function ContactPage() {
       <section className="py-20 ">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="text-5xl font-bold  mb-6">How Can We Help?</h2>
-            <p className="text-xl max-w-2xl mx-auto">
+            <h2 className="text-2xl md:text-5xl font-bold  mb-6">How Can We Help?</h2>
+            <p className="text-sm md:text-lg max-w-2xl mx-auto">
               Choose the best way to reach us. We're here to answer your questions and discuss your project.
             </p>
           </div>
@@ -467,8 +469,8 @@ export default function ContactPage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="text-5xl font-bold mb-6">Frequently Asked Questions</h2>
-            <p className="text-xl max-w-2xl mx-auto">
+            <h2 className="text-2xl  md:text-5xl font-bold mb-6">Frequently Asked Questions</h2>
+            <p className="text-sm md:text-xl max-w-2xl mx-auto">
               Find answers to common questions about our process, services, and craftsmanship
             </p>
           </div>

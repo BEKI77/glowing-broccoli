@@ -1,14 +1,13 @@
-
 "use client"
 
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import Image from "next/image"
 import { motion, useInView } from "framer-motion"
 import { WARDROBE, BEDS, SOFA, TV_STAND, DOORS, DINNING_TABLE, CABINETS } from "@/constants/images-links"
 
 const categoryIcons = {
   Wardrobe: (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -18,7 +17,7 @@ const categoryIcons = {
     </svg>
   ),
   Beds: (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -28,7 +27,7 @@ const categoryIcons = {
     </svg>
   ),
   Sofa: (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -38,7 +37,7 @@ const categoryIcons = {
     </svg>
   ),
   "TV Stand": (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -48,7 +47,7 @@ const categoryIcons = {
     </svg>
   ),
   Doors: (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -58,12 +57,12 @@ const categoryIcons = {
     </svg>
   ),
   "Dinning Table": (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h18v18H3V3zm0 6h18M9 3v18" />
     </svg>
   ),
   Cabinets: (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -86,6 +85,7 @@ function CategorySection({
 }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.1 })
+  
 
   const container = {
     hidden: { opacity: 0 },
@@ -115,19 +115,19 @@ function CategorySection({
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6 },
+      transition: { duration: 0.6},
     },
   }
 
   return (
     <motion.section ref={ref} initial="hidden" animate={isInView ? "show" : "hidden"} className="mb-24 last:mb-0">
-      <motion.div variants={categoryVariants} className="mb-16">
-        <div className="flex flex-col md:flex-row  items-center gap-6 mb-6">
+      <motion.div variants={categoryVariants} className="my-5">
+        <div className="flex flex-col md:flex-row items-center gap-6 mb-6">
           <div className="flex items-center gap-4 px-6 py-3 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700">
             <div className="text-slate-600 dark:text-slate-300">
               {categoryIcons[category.name as keyof typeof categoryIcons]}
             </div>
-            <h2 className="text-2xl md:text-3xl font-semibold text-slate-800 dark:text-slate-100 tracking-tight">
+            <h2 className="text-lg md:text-xl font-semibold text-slate-800 dark:text-slate-100 tracking-tight">
               {category.name}
             </h2>
           </div>
@@ -136,7 +136,7 @@ function CategorySection({
       </motion.div>
 
       {/* Images Grid */}
-      <motion.div variants={container} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <motion.div variants={container} className="grid gap-6 lg:grid-cols-3 xl:grid-cols-4">
         {Object.entries(category.images).map(([key, url]) => (
           <motion.div key={key} variants={item} className="group cursor-pointer">
             <div className="relative aspect-square overflow-hidden rounded-xl bg-slate-50 dark:bg-slate-800 shadow-sm hover:shadow-lg transition-all duration-400 border border-slate-200 dark:border-slate-700">
@@ -145,7 +145,7 @@ function CategorySection({
                 alt={`${category.name} ${key}`}
                 fill
                 className="object-cover transition-all duration-500 group-hover:scale-105"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 50vw, 50vw"
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-400" />
@@ -161,7 +161,7 @@ function CategorySection({
 
               <div className="absolute top-3 right-3 w-7 h-7 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center shadow-sm">
                 <svg
-                  className="w-3.5 h-3.5 text-slate-600 dark:text-slate-300"
+                  className="w-3.5 h-3.5 "
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -181,30 +181,17 @@ function CategorySection({
                 </svg>
               </div>
             </div>
-
-            <div className="mt-4">
-              <h4 className="font-medium text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-slate-100 transition-colors duration-300 text-sm">
-                {key.replace(/([A-Z])/g, " $1").trim()}
-              </h4>
-            </div>
           </motion.div>
         ))}
       </motion.div>
 
-      {categoryIndex < totalCategories - 1 && (
-        <div className="mt-20 flex items-center justify-center">
-          <div className="flex items-center gap-3">
-            <div className="w-1.5 h-1.5 bg-slate-400 dark:bg-slate-500 rounded-full"></div>
-            <div className="w-24 h-px bg-gradient-to-r from-transparent via-slate-300 dark:via-slate-600 to-transparent"></div>
-            <div className="w-1.5 h-1.5 bg-slate-400 dark:bg-slate-500 rounded-full"></div>
-          </div>
-        </div>
-      )}
     </motion.section>
   )
 }
 
 export function ArtworkGrid() {
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([])
+
   const categories = [
     { name: "Wardrobe", images: WARDROBE, color: "from-slate-50 to-slate-100" },
     { name: "Beds", images: BEDS, color: "from-slate-50 to-slate-100" },
@@ -215,10 +202,26 @@ export function ArtworkGrid() {
     { name: "Cabinets", images: CABINETS, color: "from-slate-50 to-slate-100" },
   ]
 
+  const filteredCategories =
+    selectedCategories.length === 0
+      ? categories
+      : categories.filter((category) => selectedCategories.includes(category.name))
+
+  const toggleCategory = (categoryName: string) => {
+    setSelectedCategories((prev) =>
+      prev.includes(categoryName) ? prev.filter((name) => name !== categoryName) : [...prev, categoryName],
+    )
+  }
+
+  const clearFilters = () => {
+    setSelectedCategories([])
+  }
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen ">
+      {/* Hero Section */}
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/modern-office-interior.png')] opacity-5"></div>
+        <div className={`absolute inset-0 opacity-5`}></div>
         <div className="relative px-6 py-24 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -226,33 +229,106 @@ export function ArtworkGrid() {
             transition={{ duration: 0.8 }}
             className="mb-6"
           >
-            <h1 className="text-4xl md:text-6xl font-light text-white mb-4 tracking-tight">Premium Furniture</h1>
-            <div className="w-16 h-px bg-white mx-auto"></div>
+            <h1 className="text-4xl md:text-6xl font-light mb-4 tracking-tight">Premium Furniture</h1>
+            <div className="w-16 h-px dark:bg-white bg-black mx-auto"></div>
           </motion.div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-light"
+            className="text-md md:text-lg max-w-2xl mx-auto leading-relaxed font-light"
           >
             Explore our carefully curated collection of contemporary furniture designed for sophisticated living spaces
           </motion.p>
         </div>
       </div>
 
-      {/* Gallery Content */}
-      <div className="px-6 py-20 max-w-7xl mx-auto">
-        {categories.map((category, categoryIndex) => (
-          <CategorySection
-            key={category.name}
-            category={category}
-            categoryIndex={categoryIndex}
-            totalCategories={categories.length}
-          />
-        ))}
+
+      <div className="flex flex-col">
+        <div className="mx-auto py-2">
+        <div className="rounded-xl shadow-lg border border-slate-200 dark:border-slate-800 p-4 w-[80%] mx-auto">
+          <div className="flex items-center gap-2 mb-3 ">
+            <svg className="w-4 h-4 " fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
+              />
+            </svg>
+            <h3 className="text-sm font-medium ">Filter</h3>
+            {selectedCategories.length > 0 && (
+              <button
+                onClick={clearFilters}
+                className="ml-auto text-xs  transition-colors"
+              >
+                Clear ({selectedCategories.length})
+              </button>
+            )}
+          </div>
+
+          <div className="flex flex-wrap gap-1.5 min-w-[90%] justify-center">
+            {categories.map((category) => (
+              <button
+                key={category.name}
+                onClick={() => toggleCategory(category.name)}
+                className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 ${
+                  selectedCategories.includes(category.name)
+                    ? " bg-gray-300 dark:bg-slate-900 shadow-sm"
+                    : " hover:bg-slate-200 dark:hover:bg-slate-700"
+                }`}
+              >
+                <div
+                  className={`transition-colors`}
+                >
+                  {categoryIcons[category.name as keyof typeof categoryIcons]}
+                </div>
+                <span className="whitespace-nowrap">{category.name}</span>
+              </button>
+            ))}
+          </div>
+
+          <div className="mt-3 pt-2 border-t border-slate-200 dark:border-slate-700">
+            <p className="text-xs">
+              {filteredCategories.length} of {categories.length} categories
+            </p>
+          </div>
+        </div>
       </div>
 
-      
+      {/* Gallery Content */}
+      <div className="px-2 py-2 w-[100%] mx-auto">
+        {filteredCategories.length === 0 ? (
+          <div className="text-center py-20">
+            <div className="text-slate-400 dark:text-slate-500 mb-4">
+              <svg className="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1}
+                  d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.29-1.009-5.824-2.562M15 6.306a7.962 7.962 0 00-6 0m6 0V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2.306"
+                />
+              </svg>
+            </div>
+            <h3 className="text-xl font-medium text-slate-600 dark:text-slate-400 mb-2">No categories selected</h3>
+            <p className="text-slate-500 dark:text-slate-500">
+              Choose categories from the filter panel to view furniture
+            </p>
+          </div>
+        ) : (
+          filteredCategories.map((category, categoryIndex) => (
+            <CategorySection
+              key={category.name}
+              category={category}
+              categoryIndex={categoryIndex}
+              totalCategories={filteredCategories.length}
+            />
+          ))
+        )}
+      </div>
+
+      </div>
+
     </div>
   )
 }

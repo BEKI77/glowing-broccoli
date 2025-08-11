@@ -88,7 +88,7 @@ export default function HomePage() {
                     transition={{ delay: 0.4, duration: 0.5 }}
                     className="mx-auto max-w-2xl text-5xl lg:text-6xl font-bold leading-tight"
                   >
-                    Our familiness has only beginnings, <span className="text-amber-400 font-serif italic">and no end</span>
+                    ቤተሰባዊነታችን መጀመሪያ እንጂ <span className="text-amber-400 font-serif italic">መጨረሻ የለውም</span>
                   </motion.h1>
                   <motion.p
                     initial={{ opacity: 0, y: 20 }}

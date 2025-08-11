@@ -135,7 +135,7 @@ export default function AboutPage() {
                   transition={{ delay: 0.4, duration: 0.5 }}
                 >
                   <Badge className="bg-amber-100 text-amber-800 border-amber-200 px-2 py-1">
-                    Crafting heritage furniture for over 25 years.
+                    Crafting heritage furniture for over 20+ years.
                   </Badge>
                 </motion.span>
                 <div className="space-y-6 mt-2">
@@ -153,14 +153,14 @@ export default function AboutPage() {
                     transition={{ delay: 0.4, duration: 0.5 }}
                     className="mx-auto max-w-2xl text-sm md:text-md"
                   >      
-                    For over 25 years, MH Furniture Shop has been creating beautiful, 
+                    For over 20+ years, MH Furniture Shop has been creating beautiful, 
                     handcrafted furniture that tells a story.Every piece we create is 
                     a testament to our commitment to quality, sustainability, and timeless design.
                   </motion.p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button asChild size="lg" className="gallery-btn-primary">
-                    <Link href="/products">
+                    <Link href="/contact">
                       <Play className="mr-2 h-4 w-4" />
                       Watch Our Story 
                     </Link>
@@ -243,8 +243,8 @@ export default function AboutPage() {
       <section className="py-20 h">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="text-5xl font-bold  mb-6">Our Values</h2>
-            <p className="text-xl max-w-2xl mx-auto">
+            <h2 className="text-2xl md:text-5xl font-bold  mb-6">Our Values</h2>
+            <p className="text-sm md:text-lg max-w-2xl mx-auto">
               The principles that guide everything we do, from selecting materials to delivering your finished piece
             </p>
           </div>
@@ -272,50 +272,14 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* Timeline Section */}
-      <section className="py-20">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="text-5xl font-bold  mb-6">Our Journey</h2>
-            <p className="text-xl ">Milestones that shaped MH Furniture Shop</p>
-          </div>
-          <div className="timeline-container">
-            {timeline.map((item, index) => (
-              <div
-                key={index}
-                className={`timeline-item ${index % 2 === 0 ? "timeline-left" : "timeline-right"}`}
-                style={{ animationDelay: `${index * 0.3}s` }}
-              >
-                <div className="timeline-content">
-                  <div className="timeline-image">
-                    <Image
-                      src={item.image || "/placeholder.svg"}
-                      alt={item.title}
-                      width={400}
-                      height={300}
-                      className="w-full h-48 object-cover rounded-xl"
-                    />
-                  </div>
-                  <div className="timeline-text">
-                    <div className="timeline-year">{item.year}</div>
-                    <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
-                    <p className="leading-relaxed">{item.description}</p>
-                  </div>
-                </div>
-                <div className="timeline-dot"></div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+     
 
       {/* Craftsmanship Process */}
       <section className="py-20" id="process">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="text-5xl font-bold mb-6">Our Craftsmanship</h2>
-            <p className="text-xl max-w-3xl mx-auto">
+            <h2 className="text-2xl md:text-5xl font-bold mb-6">Our Craftsmanship</h2>
+            <p className="text-sm md:text-xl max-w-3xl mx-auto">
               Every piece goes through a meticulous process that combines traditional techniques with modern precision
             </p>
           </div>
@@ -353,8 +317,8 @@ export default function AboutPage() {
           />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto text-center px-4">
-          <h2 className="text-5xl font-bold mb-6">Ready to Start Your Project?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-5xl font-bold mb-6">Ready to Start Your Project?</h2>
+          <p className="text-sm md:text-xl mb-8 max-w-2xl mx-auto">
             Let's discuss your vision and create something beautiful together. Every great piece starts with a
             conversation.
           </p>
