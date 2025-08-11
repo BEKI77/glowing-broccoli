@@ -809,7 +809,6 @@ html {
 }
 
 .timeline-content {
-  background: white;
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -857,7 +856,6 @@ html {
 }
 
 .craft-process-card {
-  background: white;
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);

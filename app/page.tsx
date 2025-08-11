@@ -41,7 +41,7 @@ export default function HomePage() {
                 priority
                 className="object-cover opacity-10 dark:opacity-20"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background to-background" />
+              <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/60 to-background" />
             </div>
           </div>
         
@@ -103,12 +103,12 @@ export default function HomePage() {
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button asChild size="lg" className="gallery-btn-primary">
-                    <Link href="/products">
+                    <Link href="/gallary">
                       Explore Collection <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
                   <Button asChild variant="outline" size="lg" className="gallery-btn-secondary bg-transparent">
-                    <Link href="/gallery">
+                    <Link href="/contact">
                       <Play className="mr-2 h-4 w-4" />
                       Virtual Tour
                     </Link>

@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Menu, Hammer } from "lucide-react"
 import { ThemeToggle } from "./theme-toggle"
+import Image from "next/image"
+import { logo_image } from "@/constants/images-links"
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -25,9 +27,16 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="bg-amber-700 p-2 rounded-lg">
-              <Hammer className="h-6 w-6 text-white" />
-            </div>
+            {/* <div className="bg-amber-700 p-1 rounded-full flex items-center justify-center"> */}
+              <Image
+                src={logo_image}
+                alt="logo image"
+                width={40}
+                height={40}
+                className="object-contain rounded-full"
+                priority
+              />
+            {/* </div> */}
             <span className="text-xl font-bold">MH Furniture</span>
           </Link>
 

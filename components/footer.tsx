@@ -1,6 +1,7 @@
 import Link from "next/link"
-import { Hammer, Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react"
-
+import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react"
+import Image from "next/image"
+import { logo_image } from "@/constants/images-links"
 export default function Footer() {
   return (
     <footer className="border-t bg-background">
@@ -9,9 +10,16 @@ export default function Footer() {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="bg-amber-700 p-2 rounded-lg">
-                <Hammer className="h-6 w-6" />
-              </div>
+             
+                <Image
+                  src={logo_image}
+                  alt="logo image"
+                  width={40}
+                  height={40}
+                  className="object-contain rounded-full"
+                  priority
+                />
+            
               <span className="text-xl font-bold">MH Furniture</span>
             </div>
             <p className=" text-sm">

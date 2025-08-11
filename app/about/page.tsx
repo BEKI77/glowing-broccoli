@@ -105,9 +105,9 @@ export default function AboutPage() {
                 alt="Gallery interior"
                 fill
                 priority
-                className="object-cover opacity-10 dark:opacity-40"
+                className="object-cover opacity-65 dark:opacity-40"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background to-background" />
+              <div className="absolute inset-0 bg-gradient-to-b from-background/5 via-background/60 to-background" />
             </div>
           </div>
         
@@ -198,7 +198,7 @@ export default function AboutPage() {
       
       {/* Mission Section with Image Gallery */}
       <section className="py-20 relative min-h-screen overflow-hidden">
-        <div className="absolute top-0 right-0 w-full h-full opacity-15 dark:opacity-5">
+        <div className="absolute top-0 right-0 w-full h-full opacity-40 dark:opacity-5">
           <Image
             src={image_links["image8"]}
             alt="Workshop background"
@@ -299,8 +299,8 @@ export default function AboutPage() {
                   </div>
                   <div className="timeline-text">
                     <div className="timeline-year">{item.year}</div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                    <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
+                    <p className="leading-relaxed">{item.description}</p>
                   </div>
                 </div>
                 <div className="timeline-dot"></div>
@@ -333,8 +333,8 @@ export default function AboutPage() {
                   <div className="craft-step-number">{process.step}</div>
                 </div>
                 <div className="craft-content">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{process.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{process.description}</p>
+                  <h3 className="text-2xl font-bold mb-4">{process.title}</h3>
+                  <p className="leading-relaxed">{process.description}</p>
                 </div>
               </div>
             ))}

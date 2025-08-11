@@ -38,7 +38,7 @@ import { toast } from "../hooks/use-toast";
 import { z } from "zod";
 import { contactMethods, faqItems } from "@/constants/contact_page";
 import { useState } from "react";
-import { image_links } from "@/constants/images-links";
+import { BEDS, image_links } from "@/constants/images-links";
 import Link from "next/link"
 
 const contactFormSchema = z.object({
@@ -131,13 +131,13 @@ export default function ContactPage() {
           <div className="relative h-full w-full">
             <Image
             
-              src={image_links["image3"]}
+              src={BEDS["image2"]}
               alt="Gallery interior"
               fill
               priority
               className="object-cover opacity-10 dark:opacity-40"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background to-background" />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/5 via-background/50 to-background" />
           </div>
         </div>
         {/* Floating Contact Cards */}
@@ -390,14 +390,27 @@ export default function ContactPage() {
                   <h3 className="text-2xl font-bold mb-4">Visit Our Showroom</h3>
                   <div className="space-y-4">
                     <div className="flex items-start space-x-3">
+
                       <MapPin className="h-5 w-5 text-amber-600 mt-1" />
                       <div>
                         <p className="font-semibold ">Address</p>
-                        <p >
+                        <p>
                           Workshop akaki kaliti industry mender
                           <br />
                           Showroom tulu dimtu alem bank road
                         </p>
+                        <div className="mt-4 rounded-lg overflow-hidden border border-amber-200 shadow">
+                          <iframe
+                            src="https://maps.google.com/?q=8.898915,38.756939&output=embed"
+                            width="100%"
+                            height="250"
+                            style={{ border: 0 }}
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            title="Showroom Location"
+                          ></iframe>
+                        </div>
                       </div>
                     </div>
                     <div className="flex items-start space-x-3">
