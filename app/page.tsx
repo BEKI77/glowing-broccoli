@@ -158,7 +158,7 @@ export default function HomePage() {
             <GalleryPreview />
             <div className="flex justify-center">
               <Button asChild size="lg" variant="outline">
-                <Link href="/gallery">View Full Gallery</Link>
+                <Link href="/gallary">View Full Gallery</Link>
               </Button>
             </div>
           </div>
