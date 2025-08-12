@@ -38,7 +38,7 @@ import { toast } from "../hooks/use-toast";
 import { z } from "zod";
 import { contactMethods, faqItems } from "@/constants/contact_page";
 import { useState } from "react";
-import { BEDS, image_links } from "@/constants/images-links";
+import { BEDS, Home_page, image_links, logo_image } from "@/constants/images-links";
 import Link from "next/link"
 
 const contactFormSchema = z.object({
@@ -435,10 +435,10 @@ export default function ContactPage() {
               <Card className="">
                 <div className="contact-info-image">
                   <Image
-                    src={image_links['image8']}
+                    src={Home_page["image2"]}
                     alt="Behind the scenes"
                     width={500}
-                    height={300}
+                    height={500}
                     className="w-full h-48 object-cover"
                   />
                 </div>

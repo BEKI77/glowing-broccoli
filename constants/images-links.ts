@@ -29,7 +29,7 @@ export const About_page:{ [key: string]: string} = {
     "image5": "https://i.postimg.cc/50jbYS0D/photo-21-2025-07-23-14-23-47.jpg"
 }
 
-export  const logo_image = "https://i.postimg.cc/3NTrGWgT/photo-2025-08-11-19-07-21.jpg";
+export  const logo_image = "https://i.postimg.cc/Twb3y34m/photo-2025-08-12-17-43-28.jpg";
 
 export const WARDROBE:{ [key:string]: string } = {
     "image1":"https://i.postimg.cc/V6Xqs5qt/289aadb0fd20c89e101771fd68343fbb.jpg",

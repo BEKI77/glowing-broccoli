@@ -78,7 +78,7 @@ export default function HomePage() {
                   transition={{ delay: 0.4, duration: 0.5 }}
                 >
                   <Badge className="bg-amber-100 text-amber-800 border-amber-200 px-2 py-1">
-                    Handcrafted Excellence Since 1998
+                    Handcrafted Excellence Since 2002
                   </Badge>
                 </motion.span>
                 <div className="space-y-6">
