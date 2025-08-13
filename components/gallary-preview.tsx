@@ -35,7 +35,7 @@ export function GalleryPreview() {
       variants={container}
       initial="hidden"
       animate={isInView ? "show" : "hidden"}
-      className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+      className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 relative"
     >
       {previewArtworks.map((artwork) => (
         <motion.div key={artwork.id} variants={item}>
@@ -53,7 +53,7 @@ export function GalleryPreview() {
                 <span className="text-sm font-medium">{artwork.name}</span>
               </div>
             </div>
-            <div className="p-4">
+            <div className="p-4 rela">
               <h3 className="text-sm font-medium">{artwork.name}</h3>
             </div>
           </Link>

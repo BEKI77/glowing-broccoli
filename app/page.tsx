@@ -28,21 +28,20 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-cream-50 to-warm-50">
-
+      <Image
+        src={Home_page["image1"]}
+        alt="Gallery interior"
+        fill
+        priority
+        className="object-cover opacity-60 dark:opacity-20"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/60 to-background" />
+            
       {/* Hero Gallery Section */}
       <section className="relative min-h-screen overflow-hidden">
 
         <div className="absolute inset-0 z-0">
-            <div className="relative h-full w-full">
-              <Image
-                src={Home_page["image1"]}
-                alt="Gallery interior"
-                fill
-                priority
-                className="object-cover opacity-10 dark:opacity-20"
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/60 to-background" />
-            </div>
+            
           </div>
         
         {/* Floating 3D Gallery Cards */}
@@ -141,8 +140,17 @@ export default function HomePage() {
 
 
       {/* Featured Products Gallery */}
-      <section className="py-24">
-        <div className="px-5 md:px-20">
+      <section className="py-24 relative">
+        <div className="absolute top-0 right-0 w-full h-full">
+          <Image
+            src={Home_page["image5"]}
+            alt="Workshop background"
+            fill
+            className="object-cover opacity-60"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background  via-background/45 to-background" />
+        <div className="relative px-5 md:px-20">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col items-center gap-4 text-center">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Gallery Preview</h2>
