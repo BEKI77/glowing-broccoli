@@ -281,7 +281,7 @@ export default function AboutPage() {
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-background  to-background/60" />
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="relative max-w-7xl mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-2xl md:text-5xl font-bold mb-6">Our Craftsmanship</h2>
             <p className="text-sm md:text-xl max-w-3xl mx-auto">
