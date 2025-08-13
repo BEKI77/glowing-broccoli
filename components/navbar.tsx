@@ -192,6 +192,7 @@ export default function Navbar() {
                   </Link>
                 )
               })}
+              <ThemeToggle />
             </div>
           </div>
         </div>

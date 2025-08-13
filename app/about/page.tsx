@@ -96,20 +96,15 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-cream-50 to-warm-50">
       {/* Hero Section with Parallax */}
+      <Image
+        src={About_page["image4"]}
+        alt="Gallery interior"
+        fill
+        priority
+        className="object-cover opacity-90 dark:opacity-40"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/5 via-background/60 to-background" />
       <section className="relative min-h-screen overflow-hidden">
-
-        <div className="absolute inset-0 z-0">
-            <div className="relative h-full w-full">
-              <Image
-                src={About_page["image4"]}
-                alt="Gallery interior"
-                fill
-                priority
-                className="object-cover opacity-65 dark:opacity-40"
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-background/5 via-background/60 to-background" />
-            </div>
-          </div>
         
         {/* Floating 3D Gallery Cards */}
         <div className="absolute inset-0 pointer-events-none">
@@ -198,14 +193,15 @@ export default function AboutPage() {
       
       {/* Mission Section with Image Gallery */}
       <section className="py-20 relative min-h-screen overflow-hidden">
-        <div className="absolute top-0 right-0 w-full h-full opacity-40 dark:opacity-5">
+        <div className="absolute top-0 right-0 w-full h-full">
           <Image
-            src={image_links["image8"]}
+            src={image_links["image2"]}
             alt="Workshop background"
             fill
             className="object-cover"
           />
         </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/55 to-background" />
         <div className="mx-auto px-4 z-10 absolute h-full w-full">
           <div className="flex flex-col gap-10 h-full justify-center ">
               <motion.h1
@@ -220,7 +216,7 @@ export default function AboutPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.5 }}
-                className="mx-auto max-w-7xl text-md md:text-xl text-center leading-relaxed"
+                className="mx-auto max-w-7xl text-sm md:text-xl text-center leading-relaxed"
               >
                 Our mission is to design, manufacture, and trade exceptional furniture that combines timeless 
                 craftsmanship with contemporary aesthetics, ensuring lasting value and customer satisfaction.
@@ -240,7 +236,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section with 3D Cards */}
-      <section className="py-20 h">
+      <section className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-2xl md:text-5xl font-bold  mb-6">Our Values</h2>
@@ -275,7 +271,16 @@ export default function AboutPage() {
      
 
       {/* Craftsmanship Process */}
-      <section className="py-20" id="process">
+      <section className="py-20 relative" id="process">
+        <div className="absolute top-0 right-0 w-full h-full">
+          <Image
+            src={Home_page["image2"]}
+            alt="Workshop background"
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background  to-background/60" />
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-2xl md:text-5xl font-bold mb-6">Our Craftsmanship</h2>
@@ -286,16 +291,6 @@ export default function AboutPage() {
           <div className="craft-process-grid">
             {craftProcess.map((process, index) => (
               <div key={index} className="craft-process-card" style={{ animationDelay: `${index * 0.3}s` }}>
-                <div className="craft-image-container">
-                  <Image
-                    src={process.image || "/placeholder.svg"}
-                    alt={process.title}
-                    width={600}
-                    height={400}
-                    className="w-full h-64 object-cover"
-                  />
-                  <div className="craft-step-number">{process.step}</div>
-                </div>
                 <div className="craft-content">
                   <h3 className="text-2xl font-bold mb-4">{process.title}</h3>
                   <p className="leading-relaxed">{process.description}</p>
@@ -316,6 +311,7 @@ export default function AboutPage() {
             className="object-cover opacity-40 dark:opacity-40"
           />
         </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background  via-background/40 to-background" />
         <div className="relative z-10 max-w-4xl mx-auto text-center px-4">
           <h2 className="text-2xl md:text-5xl font-bold mb-6">Ready to Start Your Project?</h2>
           <p className="text-sm md:text-xl mb-8 max-w-2xl mx-auto">

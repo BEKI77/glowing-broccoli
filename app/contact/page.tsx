@@ -8,12 +8,12 @@ import {
   Clock,
   Facebook,
   Instagram,
-  Twitter,
   Send,
   MessageCircle,
   Calendar,
   CheckCircle,
 } from "lucide-react"
+import { FaTiktok } from "react-icons/fa";
 import {
   Card,
   CardContent,
@@ -126,31 +126,27 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-cream-50 to-warm-50">
       {/* Hero Section */}
-      <section className="relative min-h-screen ">
-        <div className="absolute inset-0 z-0">
-          <div className="relative h-full w-full">
-            <Image
-            
-              src={BEDS["image2"]}
-              alt="Gallery interior"
-              fill
-              priority
-              className="object-cover opacity-10 dark:opacity-40"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-background/5 via-background/50 to-background" />
-          </div>
-        </div>
-        {/* Floating Contact Cards */}
+      <Image      
+        src={BEDS["image2"]}
+        alt="Gallery interior"
+        fill
+        priority
+        className="object-cover opacity-80 dark:opacity-40"
+      />
 
+      <div className="absolute inset-0 bg-gradient-to-b from-background/5 via-background/50 to-background" />
+
+      <section className="relative min-h-screen ">
+        {/* Floating Contact Cards */}
         <div className="relative z-10 min-h-screen flex items-center">
           <div className="max-w-7xl mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-8 animate-slide-in-left">
-                <Badge className="bg-amber-100 text-amber-800 border-amber-200 px-4 py-2">Let's Create Together</Badge>
-                <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
+              <div className="space-y-6 animate-slide-in-left">
+                <Badge className="bg-amber-100 text-amber-800 border-amber-200 px-4 py-1">Let's Create Together</Badge>
+                <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
                   Get In <span className="text-amber-400 font-serif italic">Touch</span>
                 </h1>
-                <p className="text-sm md:text-md leading-relaxed max-w-lg">
+                <p className="text-sm md:text-lg leading-relaxed max-w-lg">
                   Ready to create something beautiful? We'd love to hear about your project and discuss how we can bring
                   your vision to life with our handcrafted furniture.
                 </p>
@@ -182,7 +178,6 @@ export default function ContactPage() {
                   <div className="contact-hero-overlay">
                     <div className="p-6 text-white">
                       <h3 className="text-2xl font-bold mb-2">We're Here to Help</h3>
-                      <p className="text-lg opacity-90">Expert consultation & design</p>
                       <p className="text-sm mt-2 opacity-80">Response within 24 hours</p>
                     </div>
                   </div>
@@ -193,9 +188,21 @@ export default function ContactPage() {
         </div>
       </section>
 
+      
       {/* Contact Methods Grid */}
-      <section className="py-20 ">
-        <div className="max-w-7xl mx-auto px-4">
+
+      <section className="relative py-20 ">
+        <div className=" inset-0">
+          <Image  
+            src={Home_page["image6"]}
+            alt="Workshop interior"
+            fill
+            className="object-cover opacity-80 dark:opacity-40"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/35 to-background" />
+        
+        <div className="relative max-w-7xl mx-auto px-4 ">
           <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-2xl md:text-5xl font-bold  mb-6">How Can We Help?</h2>
             <p className="text-sm md:text-lg max-w-2xl mx-auto">
@@ -205,12 +212,7 @@ export default function ContactPage() {
 
           <div className="contact-methods-grid">
             {contactMethods.map((method, index) => (
-              <Card key={index}  style={{ animationDelay: `${index * 0.2}s` }}>
-                <div className="contact-method-image">
-                  <div className={`contact-method-icon ${method.color}`}>
-                    <method.icon className="h-6 w-6 text-white" />
-                  </div>
-                </div>
+              <Card key={index}  style={{ animationDelay: `${index * 0.2}s` }} className="opacity-90">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold  mb-2">{method.title}</h3>
                   <p className="mb-4">{method.description}</p>
@@ -448,15 +450,21 @@ export default function ContactPage() {
                     Stay updated with our latest projects and behind-the-scenes content
                   </p>
                   <div className="flex space-x-4">
-                    <Button variant="outline" size="icon" className="social-btn facebook-btn bg-transparent">
-                      <Facebook className="h-5 w-5" />
-                    </Button>
-                    <Button variant="outline" size="icon" className="social-btn instagram-btn bg-transparent">
-                      <Instagram className="h-5 w-5" />
-                    </Button>
-                    <Button variant="outline" size="icon" className="social-btn twitter-btn bg-transparent">
-                      <Twitter className="h-5 w-5" />
-                    </Button>
+                    <Link href='https://www.facebook.com/share/17DoMMDj6o/?mibextid=wwXIfr'>
+                      <Button variant="outline" size="icon" className="social-btn facebook-btn bg-transparent">
+                        <Facebook className="h-5 w-5" />
+                      </Button>
+                    </Link>
+                    <Link href='https://www.instagram.com/mh_furniture_et?igsh=aDJ2OHZpN3ZpZ2pr'>
+                      <Button variant="outline" size="icon" className="social-btn instagram-btn bg-transparent">
+                        <Instagram className="h-5 w-5" />
+                      </Button>
+                    </Link>
+                    <Link href='https://www.tiktok.com/@mh_furniture?_t=ZM-8yoxXQcDLA0&_r=1'>
+                      <Button variant="outline" size="icon" className="social-btn twitter-btn bg-transparent">
+                        <FaTiktok className="h-5 w-5" />
+                      </Button>
+                    </Link>
                   </div>
                 </CardContent>
               </Card>
@@ -466,8 +474,17 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4">
+      <section className="relative py-20">
+        <div className=" inset-0">
+          <Image  
+            src={Home_page["image7"]}
+            alt="Workshop interior"
+            fill
+            className="object-cover opacity-80 dark:opacity-40"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/35 to-background" />
+        <div className=" relative max-w-7xl mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-2xl  md:text-5xl font-bold mb-6">Frequently Asked Questions</h2>
             <p className="text-sm md:text-xl max-w-2xl mx-auto">
@@ -477,19 +494,10 @@ export default function ContactPage() {
 
           <div className="faq-grid">
             {faqItems.map((faq, index) => (
-              <Card key={index}  style={{ animationDelay: `${index * 0.2}s` }}>
-                <div className="faq-image">
-                  <Image
-                    src={faq.image || "/placeholder.svg"}
-                    alt={faq.question}
-                    width={300}
-                    height={200}
-                    className="w-full h-32 object-cover"
-                  />
-                </div>
+              <Card key={index}  style={{ animationDelay: `${index * 0.2}s` }} className="opacity-90">
                 <CardContent className="p-6">
-                  <h3 className="text-lg font-bold  mb-3">{faq.question}</h3>
-                  <p className="leading-relaxed">{faq.answer}</p>
+                  <h3 className="text-md md:text-lg font-bold  mb-3">{faq.question}</h3>
+                  <p className="text-sm md:text-md leading-relaxed">{faq.answer}</p>
                 </CardContent>
               </Card>
             ))}

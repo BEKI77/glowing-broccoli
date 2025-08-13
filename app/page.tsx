@@ -171,7 +171,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">What Our Customers Say</h2>
-            <p className="text-xl">Real stories from real customers who love our furniture</p>
+            <p className="text-md md:text-xl">Real stories from real customers who love our furniture</p>
           </div>
 
         
@@ -198,7 +198,7 @@ export default function HomePage() {
                           <Star key={i} className="h-5 w-5 fill-amber-400 text-amber-400" />
                         ))}
                       </div>
-                      <p className="italic text-lg">"{testimonial.text}"</p>
+                      <p className="italic text-md md:text-lg">"{testimonial.text}"</p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -223,8 +223,8 @@ export default function HomePage() {
            whileInView={{ scale: 1, opacity:1 }}
          >
         <div className="relative z-10 max-w-4xl mx-auto text-center px-4">
-          <h2 className="text-5xl font-bold mb-6">Ready to Transform Your Space?</h2>
-          <p className="text-xl  mb-8 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-5xl font-bold mb-6">Ready to Transform Your Space?</h2>
+          <p className="text-sm md:text-xl mb-8 max-w-2xl mx-auto">
             Bring us your ideas — from Pinterest boards to personal sketches — and our experienced design team and master craftsmen will bring them to life.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -54,7 +54,7 @@ export function GalleryPreview() {
               </div>
             </div>
             <div className="p-4">
-              <h3 className="font-medium">{artwork.name}</h3>
+              <h3 className="text-sm font-medium">{artwork.name}</h3>
             </div>
           </Link>
         </motion.div>

@@ -3,7 +3,7 @@
 import { useRef, useState } from "react"
 import Image from "next/image"
 import { motion, useInView } from "framer-motion"
-import { WARDROBE, BEDS, SOFA, TV_STAND, DOORS, DINNING_TABLE, CABINETS } from "@/constants/images-links"
+import { WARDROBE, BEDS, SOFA, TV_STAND, DOORS, DINNING_TABLE, CABINETS, image_links } from "@/constants/images-links"
 
 const categoryIcons = {
   Wardrobe: (
@@ -135,7 +135,7 @@ function CategorySection({
       </motion.div>
 
       {/* Images Grid */}
-      <motion.div variants={container} className="grid gap-6 lg:grid-cols-3 xl:grid-cols-4">
+      <motion.div variants={container} className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {Object.entries(category.images).map(([key, url]) => (
           <motion.div key={key} variants={item} className="group cursor-pointer">
             <div className="relative aspect-square overflow-hidden rounded-xl bg-slate-50 dark:bg-slate-800 shadow-sm hover:shadow-lg transition-all duration-400 border border-slate-200 dark:border-slate-700">
@@ -213,9 +213,17 @@ export function ArtworkGrid() {
   return (
     <div className="min-h-screen ">
       {/* Hero Section */}
+      <Image
+        src={image_links["image6"]}
+        alt="Gallery interior"
+        fill
+        priority
+        className="object-cover opacity-65 dark:opacity-40"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/5 via-background/60 to-background " />
+
       <div className="relative overflow-hidden">
-        <div className={`absolute inset-0 opacity-5`}></div>
-        <div className="relative px-6 py-24 text-center">
+        <div className="px-6 py-24 text-center ">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -236,9 +244,9 @@ export function ArtworkGrid() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-6 ">
+      <div className="relative flex flex-col gap-6 ">
         <div className="mx-auto py-5 px-4 w-[90%] max-w-4xl">
-          <div className="rounded-xl shadow-lg border  p-6 mx-auto">
+          <div className="rounded-xl shadow-lg border p-6 mx-auto">
             {/* Header with clear instructions */}
             <div className="text-center mb-6">
               <div className="flex items-center justify-center gap-3 mb-2">

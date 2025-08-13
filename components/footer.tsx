@@ -1,7 +1,8 @@
 import Link from "next/link"
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react"
+import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react"
 import Image from "next/image"
 import { logo_image } from "@/constants/images-links"
+import { FaTiktok } from "react-icons/fa"
 export default function Footer() {
   return (
     <footer className="border-t bg-background">
@@ -27,9 +28,15 @@ export default function Footer() {
               pride.
             </p>
             <div className="flex space-x-4">
-              <Facebook className="h-5 w-5  cursor-pointer" />
-              <Instagram className="h-5 w-5  cursor-pointer" />
-              <Twitter className="h-5 w-5  cursor-pointer" />
+              <Link href='https://www.facebook.com/share/17DoMMDj6o/?mibextid=wwXIfr'>
+                <Facebook className="h-5 w-5" />
+              </Link>
+              <Link href='https://www.instagram.com/mh_furniture_et?igsh=aDJ2OHZpN3ZpZ2pr'>
+                <Instagram className="h-5 w-5" />
+              </Link>
+              <Link href='https://www.tiktok.com/@mh_furniture?_t=ZM-8yoxXQcDLA0&_r=1'>
+                <FaTiktok className="h-5 w-5" />
+              </Link>
             </div>
           </div>
 
@@ -42,9 +49,6 @@ export default function Footer() {
               </Link>
               <Link href="/about" className="block text-sm">
                 About Us
-              </Link>
-              <Link href="/products" className="block text-sm">
-                Products
               </Link>
               <Link href="/gallery" className="block text-sm">
                 Gallery
