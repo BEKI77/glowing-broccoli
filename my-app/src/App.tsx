@@ -12,7 +12,7 @@ import Contact from './pages/Contact'
 function App() {
   return (
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-      <div className=" bg-background text-foreground w-full">
+      <div className="bg-background text-foreground w-full">
         <Navbar />
         <main className="w-full">
           <Routes>
