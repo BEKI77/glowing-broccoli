@@ -1,8 +1,4 @@
-"use client"
-
 import { useRef } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -11,6 +7,7 @@ import { Home_page, image_links } from "@/constants/images-links";
 import { testimonials } from "@/constants/testimonials";
 import { motion, useInView } from "framer-motion";
 import { GalleryPreview } from "@/components/gallary-preview";
+import { Link } from "react-router-dom";
 
 const container = {
   hidden: { opacity: 0 },
@@ -27,15 +24,16 @@ export default function HomePage() {
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cream-50 to-warm-50">
-      <Image
-        src={Home_page["image1"]}
-        alt="Gallery interior"
-        fill
-        priority
-        className="object-cover opacity-60 dark:opacity-20"
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/60 to-background" />
+    <div className="min-h-screen bg-linear-to-br from-cream-50 to-warm-50 relative">
+      <div className="absolute inset-0 h-screen">
+        <img
+          src={Home_page["image1"]}
+          alt="Gallery interior"
+          className="w-full h-full object-cover opacity-60 dark:opacity-20"
+          style={{ width: "100%", height: "100%" }}
+        />
+        <div className="absolute inset-0 bg-linear-to-b from-background/30 via-background/60 to-background" />
+      </div>
             
       {/* Hero Gallery Section */}
       <section className="relative min-h-screen overflow-hidden">
@@ -47,7 +45,7 @@ export default function HomePage() {
         {/* Floating 3D Gallery Cards */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="floating-gallery-card" style={{ top: "40%", right: "10%" }}>
-            <Image
+            <img
               src={Home_page["image2"]}
               alt="Designer table"
               width={300}
@@ -56,7 +54,7 @@ export default function HomePage() {
             />
           </div>
           <div className="floating-gallery-card z-40" style={{ top: "70%", left: "70%" }}>
-            <Image
+            <img
               src={Home_page["image3"]}
               alt="Custom bookshelf"
               width={300}
@@ -102,12 +100,12 @@ export default function HomePage() {
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button asChild size="lg" className="gallery-btn-primary">
-                    <Link href="/gallary">
+                    <Link to="/gallary">
                       Explore Collection <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
                   <Button asChild variant="outline" size="lg" className="gallery-btn-secondary bg-transparent">
-                    <Link href="/contact">
+                    <Link to="/contact">
                       <Play className="mr-2 h-4 w-4" />
                       Virtual Tour
                     </Link>
@@ -118,7 +116,7 @@ export default function HomePage() {
               {/* 3D Showcase Card */}
               <div className="relative">
                 <div className="showcase-3d-card">
-                  <Image
+                  <img
                     src={image_links["image7"]}
                     alt="Featured furniture piece"
                     width={600}
@@ -142,14 +140,14 @@ export default function HomePage() {
       {/* Featured Products Gallery */}
       <section className="py-24 relative">
         <div className="absolute top-0 right-0 w-full h-full">
-          <Image
+          <img
             src={Home_page["image5"]}
             alt="Workshop background"
-            fill
-            className="object-cover opacity-60"
+            className=" object-cover opacity-60"
+            style={{ width: "100%", height: "100%" }}
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-background  via-background/45 to-background" />
+        <div className="absolute inset-0 bg-linear-to-b from-background  via-background/45 to-background" />
         <div className="relative px-5 md:px-20">
           <div className="flex flex-col gap-8">
             <div className="flex flex-col items-center gap-4 text-center">
@@ -166,7 +164,7 @@ export default function HomePage() {
             <GalleryPreview />
             <div className="flex justify-center">
               <Button asChild size="lg" variant="outline">
-                <Link href="/gallary">View Full Gallery</Link>
+                <Link to="/gallary">View Full Gallery</Link>
               </Button>
             </div>
           </div>
@@ -178,7 +176,7 @@ export default function HomePage() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">What Our Customers Say</h2>
+            <h2 className="text-4xl font-bold mb-4 z-50 text-foreground">What Our Customers Say</h2>
             <p className="text-md md:text-xl">Real stories from real customers who love our furniture</p>
           </div>
 
@@ -218,11 +216,11 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0">
-          <Image
+          <img
             src={Home_page["image6"]}
             alt="Workshop interior"
-            fill
-            className="object-cover opacity-40 dark:opacity-40"
+            className="w-full h-full object-cover opacity-40 dark:opacity-40"
+            style={{ width: "100%", height: "100%" }}
           />
         </div>
         <motion.div 
@@ -237,10 +235,10 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="gallery-btn-primary">
-              <Link href="/contact">Schedule Consultation</Link>
+              <Link to="/contact">Schedule Consultation</Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="gallery-btn-secondary bg-transparent">
-              <Link href="/gallery">Visit Showroom</Link>
+              <Link to="/gallery">Visit Showroom</Link>
             </Button>
           </div>
         </div>

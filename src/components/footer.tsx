@@ -1,9 +1,10 @@
-import Link from "next/link"
+
 import { Facebook, Instagram, Mail, Phone, MapPin } from "lucide-react"
-import Image from "next/image"
+
 import { logo_image } from "@/constants/images-links"
 import { FaTiktok } from "react-icons/fa"
-export default function Footer() {
+
+export default function Footer(){
   return (
     <footer className="border-t bg-background">
       <div className="max-w-7xl mx-auto px-4 py-12">
@@ -12,13 +13,12 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
              
-                <Image
+                <img
                   src={logo_image}
                   alt="logo image"
                   width={40}
                   height={40}
                   className="object-contain rounded-full"
-                  priority
                 />
             
               <span className="text-xl font-bold">MH Furniture</span>
@@ -28,34 +28,49 @@ export default function Footer() {
               pride.
             </p>
             <div className="flex space-x-4">
-              <Link href='https://www.facebook.com/share/17DoMMDj6o/?mibextid=wwXIfr'>
+              <a
+                href="https://www.facebook.com/share/17DoMMDj6o/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
                 <Facebook className="h-5 w-5" />
-              </Link>
-              <Link href='https://www.instagram.com/mh_furniture_et?igsh=aDJ2OHZpN3ZpZ2pr'>
+              </a>
+              <a
+                href="https://www.instagram.com/mh_furniture_et?igsh=aDJ2OHZpN3ZpZ2pr"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
                 <Instagram className="h-5 w-5" />
-              </Link>
-              <Link href='https://www.tiktok.com/@mh_furniture?_t=ZM-8yoxXQcDLA0&_r=1'>
+              </a>
+              <a
+                href="https://www.tiktok.com/@mh_furniture?_t=ZM-8yoxXQcDLA0&_r=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok"
+              >
                 <FaTiktok className="h-5 w-5" />
-              </Link>
+              </a>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-4">
+            <div className="space-y-4">
             <h3 className="text-lg font-semibold">Quick Links</h3>
             <div className="space-y-2">
-              <Link href="/" className="block  text-sm">
+              <a href="/" className="block  text-sm">
                 Home
-              </Link>
-              <Link href="/about" className="block text-sm">
+              </a>
+              <a href="/about" className="block text-sm">
                 About Us
-              </Link>
-              <Link href="/gallery" className="block text-sm">
+              </a>
+              <a href="/gallery" className="block text-sm">
                 Gallery
-              </Link>
-              <Link href="/contact" className="block text-sm">
+              </a>
+              <a href="/contact" className="block text-sm">
                 Contact
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -105,15 +120,15 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className=" text-sm">© 2024 MH Furniture Shop. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link href="#" className="text-sm">
+              <a href="#" className="text-sm">
                 Privacy Policy
-              </Link>
-              <Link href="#" className=" text-sm">
+              </a>
+              <a href="#" className=" text-sm">
                 Terms of Service
-              </Link>
-              <Link href="#" className=" text-sm">
+              </a>
+              <a href="#" className=" text-sm">
                 Warranty
-              </Link>
+              </a>
             </div>
           </div>
         </div>

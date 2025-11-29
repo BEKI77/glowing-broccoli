@@ -1,12 +1,7 @@
-"use client"
-
 import { useState } from "react"
-import Image from "next/image"
-import Link from "next/link"
 import { motion } from "framer-motion"
 import { featuredProducts } from "@/constants/products"
-
-
+import { Link } from "react-router-dom"
 
 export default function FeaturedProducts() {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -24,13 +19,11 @@ export default function FeaturedProducts() {
           transition={{ duration: 0.5 }}
           className="relative aspect-square overflow-hidden rounded-lg md:aspect-auto"
         >
-          <Image
+          <img
             src={currentArtwork.image || "/placeholder.svg"}
             alt={currentArtwork.name}
-            fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 50vw"
-            priority
           />
           <motion.div
             initial={{ opacity: 0.8 }}
@@ -95,7 +88,7 @@ export default function FeaturedProducts() {
               </button>
             </div>
             <Link
-              href={`/artwork/${currentArtwork.id}`}
+              to={`/artwork/${currentArtwork.id}`}
               className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90"
             >
               View Artwork Details

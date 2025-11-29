@@ -1,10 +1,7 @@
-"use client"
-
 import { useRef } from "react"
-import Image from "next/image"
-import Link from "next/link"
 import { motion, useInView } from "framer-motion"
 import { featuredProducts } from "@/constants/products"
+import { Link } from "react-router-dom"
 
 
 
@@ -39,12 +36,11 @@ export function GalleryPreview() {
     >
       {previewArtworks.map((artwork) => (
         <motion.div key={artwork.id} variants={item}>
-          <Link href={`/gallary`} className="group block overflow-hidden rounded-lg bg-muted/30">
+          <Link to={`/gallary`} className="group block overflow-hidden rounded-lg bg-muted/30">
             <div className="relative aspect-square overflow-hidden bg-muted">
-              <Image
+              <img
                 src={artwork.image || "/placeholder.svg"}
                 alt={artwork.name}
-                fill
                 className="object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />

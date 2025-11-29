@@ -1,7 +1,4 @@
-"use client"
-
 import { useRef, useState } from "react"
-import Image from "next/image"
 import { motion, useInView } from "framer-motion"
 import { WARDROBE, BEDS, SOFA, TV_STAND, DOORS, DINNING_TABLE, CABINETS, image_links } from "@/constants/images-links"
 
@@ -76,8 +73,6 @@ const categoryIcons = {
 // Category component to fix hook usage
 function CategorySection({
   category,
-  categoryIndex,
-  totalCategories,
 }: {
   category: { name: string; images: Record<string, string>; color: string }
   categoryIndex: number
@@ -130,7 +125,7 @@ function CategorySection({
               {category.name}
             </h2>
           </div>
-          <div className="flex-1 h-px bg-gradient-to-r from-slate-300 via-slate-200 to-transparent dark:from-slate-600 dark:via-slate-700"></div>
+          <div className="flex-1 h-px bg-linear-to-r from-slate-300 via-slate-200 to-transparent dark:from-slate-600 dark:via-slate-700"></div>
         </div>
       </motion.div>
 
@@ -139,15 +134,14 @@ function CategorySection({
         {Object.entries(category.images).map(([key, url]) => (
           <motion.div key={key} variants={item} className="group cursor-pointer">
             <div className="relative aspect-square overflow-hidden rounded-xl bg-slate-50 dark:bg-slate-800 shadow-sm hover:shadow-lg transition-all duration-400 border border-slate-200 dark:border-slate-700">
-              <Image
+              <img
                 src={url || "/placeholder.svg?height=400&width=400&query=modern+furniture"}
                 alt={`${category.name} ${key}`}
-                fill
                 className="object-cover transition-all duration-500 group-hover:scale-105"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 50vw, 50vw"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-400" />
+              <div className="absolute inset-0 bg-linear-to-t from-slate-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-400" />
 
               <div className="absolute inset-0 flex items-end p-5 opacity-0 group-hover:opacity-100 transition-all duration-400 transform translate-y-2 group-hover:translate-y-0">
                 <div className="text-white">
@@ -213,14 +207,16 @@ export function ArtworkGrid() {
   return (
     <div className="min-h-screen ">
       {/* Hero Section */}
-      <Image
-        src={image_links["image6"]}
-        alt="Gallery interior"
-        fill
-        priority
-        className="object-cover opacity-65 dark:opacity-40"
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/5 via-background/60 to-background " />
+      <div className="absolute inset-0 h-screen">
+        <img
+          src={image_links["image6"]}
+          alt="Gallery interior"
+          className="w-full h-full object-cover opacity-60 dark:opacity-40"
+          style={{ width: "100%", height: "100%" }}
+        />
+        <div className="absolute inset-0 bg-linear-to-b from-background/10 via-background/40 to-background" />
+      </div>
+
 
       <div className="relative overflow-hidden">
         <div className="px-6 py-24 text-center ">
@@ -364,7 +360,7 @@ export function ArtworkGrid() {
         </div>
 
         {/* Gallery Content */}
-        <div className="px-2 w-[100%] mx-auto">
+        <div className="px-2 w-full mx-auto">
           {filteredCategories.length === 0 ? (
             <div className="text-center py-20">
               <div className="text-slate-400 dark:text-slate-500 mb-4">

@@ -1,7 +1,3 @@
-"use client"
-
-import type React from "react"
-import Image from "next/image"
 import {
   MapPin,
   Phone,
@@ -38,8 +34,8 @@ import { toast } from "../hooks/use-toast";
 import { z } from "zod";
 import { contactMethods, faqItems } from "@/constants/contact_page";
 import { useState } from "react";
-import { BEDS, Home_page, image_links, logo_image } from "@/constants/images-links";
-import Link from "next/link"
+import { BEDS, Home_page, image_links } from "@/constants/images-links";
+import { Link } from "react-router-dom"
 
 const contactFormSchema = z.object({
   name: z
@@ -70,7 +66,7 @@ const contactFormSchema = z.object({
 
 export type ContactFormData = z.infer<typeof contactFormSchema>
 
-export default function ContactPage() {
+export default function Contact() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -124,17 +120,18 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cream-50 to-warm-50">
+    <div className="min-h-screen bg-linear-to-br from-cream-50 to-warm-50">
       {/* Hero Section */}
-      <Image      
-        src={BEDS["image2"]}
-        alt="Gallery interior"
-        fill
-        priority
-        className="object-cover opacity-80 dark:opacity-40"
-      />
-
-      <div className="absolute inset-0 bg-gradient-to-b from-background/5 via-background/50 to-background" />
+      <div className="absolute inset-0">
+        <img
+           src={BEDS["image2"]}
+          alt="Gallery interior"
+          className="w-full h-full object-cover opacity-80 dark:opacity-40"
+          style={{ width: "100%", height: "100%" }}
+        />
+      </div>
+      <div className="absolute inset-0 bg-linear-to-b from-background/5 via-background/50 to-background" />
+  
 
       <section className="relative min-h-screen ">
         {/* Floating Contact Cards */}
@@ -151,13 +148,13 @@ export default function ContactPage() {
                   your vision to life with our handcrafted furniture.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Link href="https://t.me/gedi_k" target="_blank" rel="noopener noreferrer">
+                  <Link to="https://t.me/gedi_k" target="_blank" rel="noopener noreferrer">
                     <Button className="gallery-btn-primary" size="lg">
                       <MessageCircle className="mr-2 h-4 w-4" />
                       Start Conversation
                     </Button>
                   </Link>
-                  <Link href="https://t.me/gedi_k" target="_blank" rel="noopener noreferrer">
+                  <Link to="https://t.me/gedi_k" target="_blank" rel="noopener noreferrer">
                     <Button variant="outline" className="gallery-btn-secondary bg-transparent" size="lg">
                       <Calendar className="mr-2 h-4 w-4" />
                       Book Consultation
@@ -168,11 +165,11 @@ export default function ContactPage() {
 
               <div className="relative animate-slide-in-right">
                 <div className="contact-hero-card">
-                  <div className="relative w-[100%] pb-[55.000%]">
+                  <div className="relative w-full pb-[55.000%]">
                     <iframe 
                       allow="fullscreen;autoplay" 
                       src="https://streamable.com/e/vd8mgo?autoplay=1&muted=1"     
-                      className=" w-[100%] h-[100%] absolute overflow:hidden;">
+                      className=" w-full h-full absolute overflow:hidden;">
                     </iframe>
                   </div>
                   <div className="contact-hero-overlay">
@@ -192,15 +189,15 @@ export default function ContactPage() {
       {/* Contact Methods Grid */}
 
       <section className="relative py-20 ">
-        <div className=" inset-0">
-          <Image  
+        <div className="absolute inset-0">
+          <img 
             src={Home_page["image6"]}
             alt="Workshop interior"
-            fill
             className="object-cover opacity-80 dark:opacity-40"
+            style={{ width: "100%", height: "100%" }}
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/35 to-background" />
+        <div className="absolute inset-0 bg-linear-to-b from-background via-background/35 to-background" />
         
         <div className="relative max-w-7xl mx-auto px-4 ">
           <div className="text-center mb-16 animate-fade-in-up">
@@ -382,7 +379,7 @@ export default function ContactPage() {
               {/* Business Hours & Location */}
               <Card className="">
                 <div className="contact-info-image">
-                  <Image
+                  <img
                     src={image_links['image6']}
                     alt="Showroom exterior"
                     width={500}
@@ -436,7 +433,7 @@ export default function ContactPage() {
               {/* Social Media */}
               <Card className="">
                 <div className="contact-info-image">
-                  <Image
+                  <img
                     src={Home_page["image2"]}
                     alt="Behind the scenes"
                     width={500}
@@ -450,17 +447,17 @@ export default function ContactPage() {
                     Stay updated with our latest projects and behind-the-scenes content
                   </p>
                   <div className="flex space-x-4">
-                    <Link href='https://www.facebook.com/share/17DoMMDj6o/?mibextid=wwXIfr'>
+                    <Link to='https://www.facebook.com/share/17DoMMDj6o/?mibextid=wwXIfr'>
                       <Button variant="outline" size="icon" className="social-btn facebook-btn bg-transparent">
                         <Facebook className="h-5 w-5" />
                       </Button>
                     </Link>
-                    <Link href='https://www.instagram.com/mh_furniture_et?igsh=aDJ2OHZpN3ZpZ2pr'>
+                    <Link to='https://www.instagram.com/mh_furniture_et?igsh=aDJ2OHZpN3ZpZ2pr'>
                       <Button variant="outline" size="icon" className="social-btn instagram-btn bg-transparent">
                         <Instagram className="h-5 w-5" />
                       </Button>
                     </Link>
-                    <Link href='https://www.tiktok.com/@mh_furniture?_t=ZM-8yoxXQcDLA0&_r=1'>
+                    <Link to='https://www.tiktok.com/@mh_furniture?_t=ZM-8yoxXQcDLA0&_r=1'>
                       <Button variant="outline" size="icon" className="social-btn twitter-btn bg-transparent">
                         <FaTiktok className="h-5 w-5" />
                       </Button>
@@ -475,15 +472,15 @@ export default function ContactPage() {
 
       {/* FAQ Section */}
       <section className="relative py-20">
-        <div className=" inset-0">
-          <Image  
+        <div className="absolute inset-0">
+          <img  
             src={Home_page["image7"]}
             alt="Workshop interior"
-            fill
             className="object-cover opacity-80 dark:opacity-40"
+            style={{ width: "100%", height: "100%" }}
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/35 to-background" />
+        <div className="absolute inset-0 bg-linear-to-b from-background via-background/35 to-background" />
         <div className=" relative max-w-7xl mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-2xl  md:text-5xl font-bold mb-6">Frequently Asked Questions</h2>

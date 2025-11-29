@@ -1,13 +1,11 @@
-"use client"
 
-import Image from "next/image"
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Heart, Leaf, Award, Users, Play, ArrowRight } from "lucide-react";
 import { About_page, Home_page, image_links } from "@/constants/images-links";
-import Link from "next/link";
+import { Link } from "react-router-dom"
 
 const values = [
   {
@@ -36,38 +34,6 @@ const values = [
   },
 ]
 
-const timeline = [
-  {
-    year: "1998",
-    title: "The Beginning",
-    description: "Mohammed Hayder started MH Furniture Shop in his garage with just basic tools and a dream.",
-    image: "/placeholder.svg?height=300&width=400&text=1998+Garage+Workshop+Beginning",
-  },
-  {
-    year: "2005",
-    title: "First Workshop",
-    description: "Moved to our first dedicated workshop space and hired our first apprentice.",
-    image: "/placeholder.svg?height=300&width=400&text=2005+First+Professional+Workshop",
-  },
-  {
-    year: "2012",
-    title: "Recognition",
-    description: "Won the Regional Craftsmanship Award for our innovative joinery techniques.",
-    image: "/placeholder.svg?height=300&width=400&text=2012+Award+Ceremony+Recognition",
-  },
-  {
-    year: "2018",
-    title: "Expansion",
-    description: "Opened our current 5,000 sq ft workshop and showroom.",
-    image: "/placeholder.svg?height=300&width=400&text=2018+Modern+Workshop+Expansion",
-  },
-  {
-    year: "2023",
-    title: "Digital Presence",
-    description: "Launched our online gallery and expanded to serve customers nationwide.",
-    image: "/placeholder.svg?height=300&width=400&text=2023+Digital+Showroom+Launch",
-  },
-]
 
 const craftProcess = [
   {
@@ -92,24 +58,25 @@ const craftProcess = [
   },
 ]
 
-export default function AboutPage() {
+export default function About() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cream-50 to-warm-50">
+    <div className="min-h-screen bg-linear-to-br from-cream-50 to-warm-50">
       {/* Hero Section with Parallax */}
-      <Image
-        src={About_page["image4"]}
-        alt="Gallery interior"
-        fill
-        priority
-        className="object-cover opacity-90 dark:opacity-40"
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/5 via-background/60 to-background" />
+      <div className="absolute inset-0 h-screen">
+        <img
+           src={About_page["image4"]}
+          alt="Gallery interior"
+          className="w-full h-full object-cover opacity-65 dark:opacity-40"
+          style={{ width: "100%", height: "100%" }}
+        />
+        <div className="absolute inset-0 bg-linear-to-b from-background/30 via-background/60 to-background" />
+      </div>
+    
       <section className="relative min-h-screen overflow-hidden">
-        
         {/* Floating 3D Gallery Cards */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="floating-gallery-card" style={{ top: "55%", right: "13%" }}>
-            <Image
+            <img
               src={About_page["image2"]}
               alt="Designer table"
               width={200}
@@ -155,13 +122,13 @@ export default function AboutPage() {
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button asChild size="lg" className="gallery-btn-primary">
-                    <Link href="/contact">
+                    <Link to="/contact">
                       <Play className="mr-2 h-4 w-4" />
                       Watch Our Story 
                     </Link>
                   </Button>
                   <Button asChild variant="outline" size="lg" className="gallery-btn-secondary bg-transparent">
-                    <Link href="#Team">
+                    <Link to="#Team">
                       Meet the Team
                     </Link>
                   </Button>
@@ -171,8 +138,8 @@ export default function AboutPage() {
               {/* 3D Showcase Card */}
               <div className="relative">
                 <div className="showcase-3d-card">
-                  <Image
-                    src={About_page["image4"]}
+                  <img
+                    src={About_page["img4"] || About_page["image4"]}
                     alt="Featured furniture piece"
                     width={600}
                     height={500}
@@ -191,17 +158,16 @@ export default function AboutPage() {
         </div>
       </section>
       
-      {/* Mission Section with Image Gallery */}
+      {/* Mission Section with img Gallery */}
       <section className="py-20 relative min-h-screen overflow-hidden">
         <div className="absolute top-0 right-0 w-full h-full">
-          <Image
-            src={image_links["image2"]}
+          <img
+            src={image_links["img2"] || image_links["image2"]}
             alt="Workshop background"
-            fill
-            className="object-cover"
+            className="object-cover w-full h-full"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/55 to-background" />
+        <div className="absolute inset-0 bg-linear-to-b from-background via-background/55 to-background" />
         <div className="mx-auto px-4 z-10 absolute h-full w-full">
           <div className="flex flex-col gap-10 h-full justify-center ">
               <motion.h1
@@ -224,7 +190,7 @@ export default function AboutPage() {
                 generations, telling the story of the hands that crafted it and the home that embraces it.
               </motion.p>    
               
-              <Link href="#process" className="mx-auto">
+              <Link to="#process" className="mx-auto">
                 <Button className="gallery-btn-primary " size="lg">
                     <ArrowRight className="mr-2 h-4 w-4" />
                     Explore Our Process
@@ -248,7 +214,7 @@ export default function AboutPage() {
             {values.map((value, index) => (
               <Card key={index} style={{ animationDelay: `${index * 0.2}s` }}>
                 <div className="value-image-container">
-                  <Image
+                  <img
                     src={value.image || "/placeholder.svg"}
                     alt={value.title}
                     width={400}
@@ -273,14 +239,13 @@ export default function AboutPage() {
       {/* Craftsmanship Process */}
       <section className="py-20 relative" id="process">
         <div className="absolute top-0 right-0 w-full h-full">
-          <Image
-            src={Home_page["image2"]}
+          <img
+            src={Home_page["img2"] || Home_page["image2"]}
             alt="Workshop background"
-            fill
-            className="object-cover"
+            className="object-cover w-full h-full"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-background  to-background/60" />
+        <div className="absolute inset-0 bg-linear-to-b from-background  to-background/60" />
         <div className="relative max-w-7xl mx-auto px-4">
           <div className="text-center mb-16 animate-fade-in-up">
             <h2 className="text-2xl md:text-5xl font-bold mb-6">Our Craftsmanship</h2>
@@ -304,14 +269,13 @@ export default function AboutPage() {
       {/* CTA Section */}
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0">
-          <Image  
+          <img  
             src={Home_page["image6"]}
             alt="Workshop interior"
-            fill
-            className="object-cover opacity-40 dark:opacity-40"
+            className="object-cover opacity-40 dark:opacity-40 w-full h-full"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-background  via-background/40 to-background" />
+        <div className="absolute inset-0 bg-linears-to-b from-background  via-background/40 to-background" />
         <div className="relative z-10 max-w-4xl mx-auto text-center px-4">
           <h2 className="text-2xl md:text-5xl font-bold mb-6">Ready to Start Your Project?</h2>
           <p className="text-sm md:text-xl mb-8 max-w-2xl mx-auto">
